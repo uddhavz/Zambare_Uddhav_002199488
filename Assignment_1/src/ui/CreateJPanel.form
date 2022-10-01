@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblTitle" alignment="1" pref="1000" max="32767" attributes="0"/>
+          <Component id="lblTitle" alignment="1" pref="1200" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
@@ -49,7 +49,7 @@
                   </Group>
                   <Component id="btnUploadPhoto" linkSize="4" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
