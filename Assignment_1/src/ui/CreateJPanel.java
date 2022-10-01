@@ -4,7 +4,10 @@
  */
 package ui;
 
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Emp;
 import model.EmpHistory;
 
@@ -19,6 +22,7 @@ public class CreateJPanel extends javax.swing.JPanel {
      */
     Emp emp;
     EmpHistory history;
+    String photo = "";
     
     public CreateJPanel(EmpHistory history) {
         initComponents();
@@ -57,8 +61,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtPositionTitle = new javax.swing.JTextField();
         txtCellPhone = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        txtPhoto = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
+        btnUploadPhoto = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -110,6 +114,13 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUploadPhoto.setText("Upload");
+        btnUploadPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadPhotoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,7 +144,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSave)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtName)
+                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                         .addComponent(txtEmpID)
                         .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtGender)
@@ -142,17 +153,19 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(txtTeamInfo)
                         .addComponent(txtPositionTitle, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtCellPhone)
-                        .addComponent(txtEmail)
-                        .addComponent(txtPhoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEmail))
+                    .addComponent(btnUploadPhoto))
                 .addGap(336, 336, 336))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAge, lblCellPhone, lblEmail, lblEmpID, lblGender, lblLevel, lblName, lblPhoto, lblPositionTitle, lblStartdate, lblTeamInfo});
 
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnUploadPhoto, txtAge, txtCellPhone, txtEmail, txtEmpID, txtGender, txtLevel, txtName, txtPositionTitle, txtStartdate, txtTeamInfo});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(22, 22, 22)
                 .addComponent(lblTitle)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -195,15 +208,17 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPhoto)
-                    .addComponent(txtPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnUploadPhoto))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAge, lblCellPhone, lblEmail, lblEmpID, lblGender, lblLevel, lblName, lblPhoto, lblPositionTitle, lblStartdate, lblTeamInfo});
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnUploadPhoto, txtAge, txtCellPhone, txtEmail, txtEmpID, txtGender, txtLevel, txtName, txtPositionTitle, txtStartdate, txtTeamInfo});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -234,7 +249,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         String positiontitle = txtPositionTitle.getText();
         String cellphone = txtCellPhone.getText();
         String email = txtEmail.getText();
-        String photo = txtPhoto.getText();
+        //String photo = txtPhoto.getText();
         
         Emp emp = history.addNewEmp();
         
@@ -259,7 +274,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtGender.setText("");
         txtLevel.setText("");
         txtName.setText("");
-        txtPhoto.setText("");
         txtPositionTitle.setText("");
         txtStartdate.setText("");
         txtTeamInfo.setText("");
@@ -267,9 +281,24 @@ public class CreateJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnUploadPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadPhotoActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseFile = new JFileChooser();
+        
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseFile.addChoosableFileFilter(fnef);
+        int showMsg = browseFile.showOpenDialog(null);
+        if (showMsg == JFileChooser.APPROVE_OPTION){
+            File selectedImage = browseFile.getSelectedFile();
+            photo = selectedImage.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, photo);
+        }
+    }//GEN-LAST:event_btnUploadPhotoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUploadPhoto;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCellPhone;
     private javax.swing.JLabel lblEmail;
@@ -289,7 +318,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLevel;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhoto;
     private javax.swing.JTextField txtPositionTitle;
     private javax.swing.JTextField txtStartdate;
     private javax.swing.JTextField txtTeamInfo;
