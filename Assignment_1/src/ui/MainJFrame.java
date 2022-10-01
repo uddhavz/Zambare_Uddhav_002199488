@@ -4,25 +4,25 @@
  */
 package ui;
 
-import model.Product;
+import model.Emp;
+import model.EmpHistory;
 
 /**
  *
  * @author UddhavZ
  */
 public class MainJFrame extends javax.swing.JFrame {
-
     /**
      * Creates new form MainJFrame
      */
-    
-    Product product;
-    
-    
+        Emp emp;
+        EmpHistory history;
+        
     public MainJFrame() {
         initComponents();
         
-        product = new Product();
+        emp = new Emp();
+        history = new EmpHistory();
     }
 
     /**
@@ -61,11 +61,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(47, 47, 47)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnCreate)
-                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(856, Short.MAX_VALUE))
         );
 
         controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreate, btnView});
@@ -73,11 +73,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(btnCreate)
-                .addGap(18, 18, 18)
+                .addGap(95, 95, 95)
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(btnView)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(474, Short.MAX_VALUE))
         );
 
         controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnView});
@@ -101,11 +101,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -114,7 +114,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         
-        CreateJPanel createPanel = new CreateJPanel(product);
+        CreateJPanel createPanel = new CreateJPanel(history);
         jSplitPane1.setRightComponent(createPanel);
         
         
@@ -122,7 +122,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        ViewJPanel viewPanel = new ViewJPanel(product);
+        ViewJPanel viewPanel = new ViewJPanel(history);
         jSplitPane1.setRightComponent(viewPanel);
     }//GEN-LAST:event_btnViewActionPerformed
 

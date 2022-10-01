@@ -8,11 +8,10 @@ package model;
  *
  * @author UddhavZ
  */
-public class Product {
-    
+public class Emp {
     private String name;
     private String empID;
-    private String age;
+    private int age;
     private String gender;
     private String startdate;
     private String level;
@@ -38,11 +37,11 @@ public class Product {
         this.empID = empID;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -109,13 +108,10 @@ public class Product {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-    
-    
-    
-    
-    
 
-   
-    
+    @Override
+    public String toString(){
+        return name;
+    }
     
 }
