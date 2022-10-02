@@ -78,6 +78,8 @@ public class UpdateJPanel extends javax.swing.JPanel {
         rbFemale = new javax.swing.JRadioButton();
         rbOther = new javax.swing.JRadioButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lblTitle.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Employee Chart");
@@ -110,6 +112,16 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblEmp);
+        if (tblEmp.getColumnModel().getColumnCount() > 0) {
+            tblEmp.getColumnModel().getColumn(0).setMinWidth(150);
+            tblEmp.getColumnModel().getColumn(1).setMinWidth(100);
+            tblEmp.getColumnModel().getColumn(2).setMinWidth(50);
+            tblEmp.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblEmp.getColumnModel().getColumn(2).setMaxWidth(50);
+            tblEmp.getColumnModel().getColumn(3).setMinWidth(50);
+            tblEmp.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblEmp.getColumnModel().getColumn(3).setMaxWidth(50);
+        }
 
         lblEmpID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEmpID.setText("Employee ID:");
@@ -122,7 +134,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
 
         btnUpdate.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
         btnUpdate.setText("Update");
-        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.setBorder(new javax.swing.border.MatteBorder(null));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -365,7 +377,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             String level = txtLevel.getText();
             String teaminfo =txtTeamInfo.getText();
             String positiontitle = txtPositionTitle.getText();
-            String cellphone = txtCellPhone.getText();
+            long cellphone = Long.parseLong(txtCellPhone.getText());
             String email = txtEmail.getText();
             String name = txtName.getText();         
             
@@ -401,7 +413,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
             populateTable();
         }
         else{
-            if(tblEmp.getRowCount()==0){
+            if(tblEmp.getRowCount()<=0){
                 JOptionPane.showMessageDialog(this, "Table is empty");
             }
         }
@@ -465,7 +477,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
         txtLevel.setText(selectedEmp.getLevel());
         txtTeamInfo.setText(selectedEmp.getTeamInfo());
         txtPositionTitle.setText(selectedEmp.getPositionTitle());
-        txtCellPhone.setText(selectedEmp.getCellPhone());
+        txtCellPhone.setText(String.valueOf(selectedEmp.getCellPhone()));
         txtEmail.setText(selectedEmp.getEmail());
         photo = selectedEmp.getPhoto();
         ImageIcon ii = new ImageIcon(selectedEmp.getPhoto());

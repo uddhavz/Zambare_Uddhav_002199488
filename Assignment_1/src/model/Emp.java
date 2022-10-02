@@ -17,7 +17,7 @@ public class Emp {
     private String level;
     private String teamInfo;
     private String positionTitle;
-    private String cellPhone;
+    private long cellPhone;
     private String email;
     private String photo;
 
@@ -85,11 +85,11 @@ public class Emp {
         this.positionTitle = positionTitle;
     }
 
-    public String getCellPhone() {
+    public long getCellPhone() {
         return cellPhone;
     }
 
-    public void setCellPhone(String cellPhone) {
+    public void setCellPhone(long cellPhone) {
         this.cellPhone = cellPhone;
     }
 
