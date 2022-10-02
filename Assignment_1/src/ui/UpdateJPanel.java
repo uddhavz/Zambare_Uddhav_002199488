@@ -363,8 +363,8 @@ public class UpdateJPanel extends javax.swing.JPanel {
             emp.setStartdate(startdate);
             emp.setTeamInfo(teaminfo);
             
-            
-            
+            //this.history = history;
+            populateTable();
         }
         else{
             if(tblEmp.getRowCount()==0){

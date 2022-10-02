@@ -25,7 +25,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     
     Emp emp;
     EmpHistory history;
-    DefaultTableModel dm;
+    
     
     public ViewJPanel(EmpHistory history) {
         initComponents();
