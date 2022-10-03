@@ -6,6 +6,7 @@ package ui;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -273,10 +274,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
+    
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-       
-        String name = txtName.getText();
+       if(validate_save()){
+           String name = txtName.getText();
         int age = Integer.parseInt(txtAge.getText());
         String empid = txtEmpID.getText();
         String gender;
@@ -325,6 +328,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         cbPosTitle.setSelectedIndex(0);
         dStartDate.setCalendar(null);
         txtTeamInfo.setText("");
+        
+       }
         
         
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -390,6 +395,47 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtTeamInfo;
     // End of variables declaration//GEN-END:variables
 
+    public boolean validate_save(){
+        boolean b = true;
+        Date date = dStartDate.getDate();
+        if(txtAge.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Age Required");
+        } else if(txtCellPhone.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "CellPhone Required");
+        } else if(txtEmail.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Email Required");
+        } else if(txtEmpID.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Employee ID Required");
+        } else if(txtLevel.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Level Required");
+        } else if(txtName.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Name Required");
+        } else if((rbFemale.isSelected()==false)&&(rbMale.isSelected()==false)&&(rbOther.isSelected()==false)){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Gender Required");
+        } else if(date == null){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Start Date Required");
+        } else if(cbPosTitle.getSelectedItem().toString().equals(" ")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Select Position Title");
+        } else if(txtTeamInfo.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Team Info Required");
+        } else if(photo.equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Age not valid");
+        }    
+        
+        return b;
+    }
+    
     
 }
 
