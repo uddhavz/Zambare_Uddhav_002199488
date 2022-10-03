@@ -113,6 +113,12 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAgeKeyPressed(evt);
+            }
+        });
+
         txtCellPhone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCellPhoneKeyPressed(evt);
@@ -173,7 +179,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(343, 343, 343)
+                .addGap(206, 206, 206)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +274,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(btnUploadPhoto))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(246, 246, 246))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAge, lblCellPhone, lblEmail, lblEmpID, lblGender, lblLevel, lblName, lblPhoto, lblPositionTitle, lblStartdate, lblTeamInfo});
@@ -376,8 +382,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         String phn = txtCellPhone.getText();
         int length = phn.length();
         
-        char c = evt.getKeyChar();
-        
         if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
             if(length<10){
                 txtCellPhone.setEditable(true);
@@ -393,6 +397,25 @@ public class CreateJPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_txtCellPhoneKeyPressed
+
+    private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
+        // TODO add your handling code here:
+        String phn = txtCellPhone.getText();
+        int length = phn.length();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<2){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtAgeKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -465,6 +488,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         
         return b;
     }
+    
     
     
 }

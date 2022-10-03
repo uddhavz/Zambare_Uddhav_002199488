@@ -36,7 +36,7 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblCellPhone" alignment="1" max="32767" attributes="0"/>
                   <Component id="lblPositionTitle" alignment="1" max="32767" attributes="0"/>
@@ -54,23 +54,19 @@
                   <Component id="lblDEmail" min="-2" pref="185" max="-2" attributes="0"/>
                   <Component id="lblDCellPhn" min="-2" pref="185" max="-2" attributes="0"/>
                   <Component id="lblDPosTitle" min="-2" pref="185" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblDName" linkSize="6" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDEmpID" linkSize="6" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDAge" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDStartDate" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDGender" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDLevel" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="lblDTeamInfo" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                      <Component id="lblImage" min="-2" pref="199" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      <Component id="btnDelete" min="-2" pref="120" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lblDName" linkSize="6" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDEmpID" linkSize="6" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDAge" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDStartDate" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDGender" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDLevel" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                  <Component id="lblDTeamInfo" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Component id="lblImage" min="-2" pref="199" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+              <Component id="btnDelete" min="-2" pref="120" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
