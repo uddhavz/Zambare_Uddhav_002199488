@@ -30,12 +30,8 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
         Image img = ii.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
-        jLabel1.setIcon(new ImageIcon(img));
-        
+        jLabel1.setIcon(new ImageIcon(img));    
     }
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

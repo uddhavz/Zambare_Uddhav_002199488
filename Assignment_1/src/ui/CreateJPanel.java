@@ -29,8 +29,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     
     public CreateJPanel(EmpHistory history) {
         initComponents();
-        this.history = history;
-        
+        this.history = history;  
     }
 
     /**
