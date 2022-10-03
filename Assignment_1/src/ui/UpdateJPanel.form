@@ -84,7 +84,7 @@
                               <Component id="txtName" linkSize="5" min="-2" pref="188" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
@@ -189,6 +189,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="txtCellPhone">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCellPhoneKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEmail">
     </Component>

@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -109,6 +110,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
+            }
+        });
+
+        txtCellPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCellPhoneKeyPressed(evt);
             }
         });
 
@@ -363,6 +370,29 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void cbPosTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosTitleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbPosTitleActionPerformed
+
+    private void txtCellPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCellPhoneKeyPressed
+        // TODO add your handling code here:
+        String phn = txtCellPhone.getText();
+        int length = phn.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }
+        
+    }//GEN-LAST:event_txtCellPhoneKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

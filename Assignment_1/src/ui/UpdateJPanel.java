@@ -5,6 +5,7 @@
 package ui;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -84,6 +85,12 @@ public class UpdateJPanel extends javax.swing.JPanel {
         cbPosTitle = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        txtCellPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCellPhoneKeyPressed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -270,7 +277,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
                                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
@@ -527,6 +534,28 @@ public class UpdateJPanel extends javax.swing.JPanel {
     private void rbFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemaleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbFemaleActionPerformed
+
+    private void txtCellPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCellPhoneKeyPressed
+        // TODO add your handling code here:
+        String phn = txtCellPhone.getText();
+        int length = phn.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtCellPhone.setEditable(true);
+            }else{
+                txtCellPhone.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtCellPhoneKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
