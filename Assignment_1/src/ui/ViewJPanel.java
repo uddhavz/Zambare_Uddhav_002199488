@@ -23,7 +23,6 @@ public class ViewJPanel extends javax.swing.JPanel {
      * Creates new form ViewJPanel
      */
     
-    Emp emp;
     EmpHistory history;
     
     

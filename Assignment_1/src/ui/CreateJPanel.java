@@ -23,7 +23,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    Emp emp;
     EmpHistory history;
     String photo = "";
     
@@ -105,12 +104,6 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblPhoto.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPhoto.setText("Photo:");
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -281,10 +274,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnUploadPhoto, cbPosTitle, dStartDate, txtAge, txtCellPhone, txtEmail, txtEmpID, txtLevel, txtName, txtTeamInfo});
 
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
 
     
     

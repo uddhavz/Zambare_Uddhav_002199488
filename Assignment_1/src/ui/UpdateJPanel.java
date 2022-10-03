@@ -32,9 +32,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
      * Creates new form UpdateJPanel
      */
     
-    Emp emp;
     EmpHistory history;
-    DefaultTableModel dm;
     String photo = "";
     
     public UpdateJPanel(EmpHistory history) {
@@ -195,11 +193,6 @@ public class UpdateJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgeActionPerformed(evt);
-            }
-        });
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtAgeKeyPressed(evt);
@@ -371,7 +364,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        if(validate_save()){
+        
             int selectedRowIndex = tblEmp.getSelectedRow();
             if (selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Please select a row to update.");
@@ -382,7 +375,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
         Emp selectedEmp = (Emp)model.getValueAt(selectedRowIndex, 0);
         
         if (tblEmp.getSelectedRowCount() == 1){
-            
+            if(validate_save()){
             int age = Integer.parseInt(txtAge.getText());
             String empid = txtEmpID.getText();
             String gender;
@@ -468,10 +461,6 @@ public class UpdateJPanel extends javax.swing.JPanel {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
-
-    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeActionPerformed
 
     private void tblEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpMouseClicked
         try {
