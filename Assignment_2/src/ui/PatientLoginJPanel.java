@@ -32,7 +32,6 @@ public class PatientLoginJPanel extends javax.swing.JPanel {
         lblPatientAdminTitle = new javax.swing.JLabel();
         btnPatientLogin = new javax.swing.JButton();
         lblPatientUsername = new javax.swing.JLabel();
-        btnPatientSignUp = new javax.swing.JButton();
 
         lblPatientPassword.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblPatientPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -58,44 +57,33 @@ public class PatientLoginJPanel extends javax.swing.JPanel {
         lblPatientUsername.setText("Username :");
         lblPatientUsername.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        btnPatientSignUp.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        btnPatientSignUp.setText("Sign Up");
-        btnPatientSignUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientSignUpActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblPatientUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPatientPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pfPatientPassword)
-                    .addComponent(txtPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(289, 289, 289))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(lblPatientAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(btnPatientSignUp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPatientLogin)))
-                .addContainerGap(162, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblPatientAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(312, 312, 312))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPatientUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPatientPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pfPatientPassword)
+                            .addComponent(txtPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(439, 439, 439))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnPatientLogin)
+                        .addGap(513, 513, 513))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addComponent(lblPatientAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(lblPatientUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,10 +92,8 @@ public class PatientLoginJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPatientLogin)
-                    .addComponent(btnPatientSignUp))
-                .addContainerGap())
+                .addComponent(btnPatientLogin)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,14 +101,9 @@ public class PatientLoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPatientLoginActionPerformed
 
-    private void btnPatientSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientSignUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatientSignUpActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPatientLogin;
-    private javax.swing.JButton btnPatientSignUp;
     private javax.swing.JLabel lblPatientAdminTitle;
     private javax.swing.JLabel lblPatientPassword;
     private javax.swing.JLabel lblPatientUsername;

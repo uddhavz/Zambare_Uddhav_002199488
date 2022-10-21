@@ -44,25 +44,20 @@
                       <Component id="rbFemale" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="rbOther" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtAge" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnUploadPhoto" linkSize="4" max="32767" attributes="0"/>
-                          <Component id="txtName" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtEmpID" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtEmail" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCellPhone" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtTeamInfo" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtLevel" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dStartDate" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cbPosTitle" linkSize="4" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAge" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnUploadPhoto" linkSize="4" max="32767" attributes="0"/>
+                  <Component id="txtName" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtEmpID" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtEmail" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtCellPhone" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtTeamInfo" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtLevel" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="dStartDate" linkSize="4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbPosTitle" linkSize="4" alignment="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -38,6 +38,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
         jPanelLeft.setBackground(new java.awt.Color(0, 0, 0));
 
         btnSystemAdmin.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
@@ -90,15 +92,21 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelLeftLayout.setHorizontalGroup(
             jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnPatient)
-                    .addComponent(btnSystemAdmin)
-                    .addComponent(btnHospitalAdmin)
-                    .addComponent(btnCommunityAdmin)
-                    .addComponent(btnDoctor)
+                .addGap(192, 192, 192)
+                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLeftLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnSystemAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnHospitalAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCommunityAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDoctor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPatient))
                     .addComponent(lblLoginAstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jPanelLeftLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommunityAdmin, btnDoctor, btnHospitalAdmin, btnPatient, btnSystemAdmin, lblLoginAstxt});
@@ -106,19 +114,16 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelLeftLayout.setVerticalGroup(
             jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
                 .addComponent(lblLoginAstxt)
-                .addGap(18, 18, 18)
-                .addComponent(btnSystemAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btnHospitalAdmin)
-                .addGap(21, 21, 21)
-                .addComponent(btnCommunityAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btnDoctor)
-                .addGap(18, 18, 18)
-                .addComponent(btnPatient)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSystemAdmin)
+                    .addComponent(btnHospitalAdmin)
+                    .addComponent(btnCommunityAdmin)
+                    .addComponent(btnDoctor)
+                    .addComponent(btnPatient))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelLeftLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCommunityAdmin, btnDoctor, btnHospitalAdmin, btnPatient, btnSystemAdmin, lblLoginAstxt});
@@ -131,11 +136,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelRight.setLayout(jPanelRightLayout);
         jPanelRightLayout.setHorizontalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 1100, Short.MAX_VALUE)
         );
         jPanelRightLayout.setVerticalGroup(
             jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanelRight);
@@ -155,37 +160,42 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
-        // TODO add your handling code here:
-        SysAdminJPanel sysadminPanel = new SysAdminJPanel();
+        // TODO add your handling code here:       
+        SysAdminLoginJPanel sysadminPanel = new SysAdminLoginJPanel();
         jSplitPane1.setRightComponent(sysadminPanel);
         
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 
     private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
         // TODO add your handling code here:
-        HospAdminJPanel hosadminPanel = new HospAdminJPanel();
+        HospAdminLoginJPanel hosadminPanel = new HospAdminLoginJPanel();
         jSplitPane1.setRightComponent(hosadminPanel);
     }//GEN-LAST:event_btnHospitalAdminActionPerformed
 
     private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
         // TODO add your handling code here:
-        CommunityAdminJPanel commadminPanel = new CommunityAdminJPanel();
+        CommunityAdminLoginJPanel commadminPanel = new CommunityAdminLoginJPanel();
         jSplitPane1.setRightComponent(commadminPanel);
     }//GEN-LAST:event_btnCommunityAdminActionPerformed
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
-        PatientLoginJPanel patientloginPanel = new PatientLoginJPanel();
-        jSplitPane1.setRightComponent(patientloginPanel);
+        DoctorLoginJPanel docloginPanel = new DoctorLoginJPanel();
+        jSplitPane1.setRightComponent(docloginPanel);
     }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        DoctorJPanel docloginPanel = new DoctorJPanel();
-        jSplitPane1.setRightComponent(docloginPanel);
+        PatientLoginJPanel patientloginPanel = new PatientLoginJPanel();
+        jSplitPane1.setRightComponent(patientloginPanel);
     }//GEN-LAST:event_btnPatientActionPerformed
 
     /**
+     * 
+     * 
+     * 
+     * 
+     * \
      * @param args the command line arguments
      */
     public static void main(String args[]) {

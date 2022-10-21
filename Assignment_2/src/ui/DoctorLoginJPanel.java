@@ -8,12 +8,12 @@ package ui;
  *
  * @author UddhavZ
  */
-public class DoctorJPanel extends javax.swing.JPanel {
+public class DoctorLoginJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form DoctorJPanel
      */
-    public DoctorJPanel() {
+    public DoctorLoginJPanel() {
         initComponents();
     }
 
@@ -29,7 +29,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
         lblDocAdminTitle = new javax.swing.JLabel();
         btnDocLogin = new javax.swing.JButton();
         lblDocUsername = new javax.swing.JLabel();
-        btnDocSignUp = new javax.swing.JButton();
         txtDocUsername = new javax.swing.JTextField();
         lblDocPassword = new javax.swing.JLabel();
         pfDocPassword = new javax.swing.JPasswordField();
@@ -53,14 +52,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
         lblDocUsername.setText("Username :");
         lblDocUsername.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        btnDocSignUp.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        btnDocSignUp.setText("Sign Up");
-        btnDocSignUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDocSignUpActionPerformed(evt);
-            }
-        });
-
         lblDocPassword.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblDocPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDocPassword.setText("Password :");
@@ -71,31 +62,28 @@ public class DoctorJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblDocUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDocPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pfDocPassword)
-                    .addComponent(txtDocUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(289, 289, 289))
+                .addContainerGap(312, Short.MAX_VALUE)
+                .addComponent(lblDocAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(312, 312, 312))
             .addGroup(layout.createSequentialGroup()
+                .addGap(439, 439, 439)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblDocUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDocPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pfDocPassword)
+                        .addComponent(txtDocUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(lblDocAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(btnDocSignUp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(74, 74, 74)
                         .addComponent(btnDocLogin)))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addComponent(lblDocAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(lblDocUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDocUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,10 +92,8 @@ public class DoctorJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pfDocPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDocLogin)
-                    .addComponent(btnDocSignUp))
-                .addContainerGap())
+                .addComponent(btnDocLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,14 +101,9 @@ public class DoctorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDocLoginActionPerformed
 
-    private void btnDocSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocSignUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDocSignUpActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDocLogin;
-    private javax.swing.JButton btnDocSignUp;
     private javax.swing.JLabel lblDocAdminTitle;
     private javax.swing.JLabel lblDocPassword;
     private javax.swing.JLabel lblDocUsername;
