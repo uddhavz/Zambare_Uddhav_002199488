@@ -102,7 +102,6 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         SysAdminMainFrame sysmain = new SysAdminMainFrame();
         sysmain.setVisible(true);
-        
         //jSplitPane1.setRightComponent(sysadminPanel);
     }//GEN-LAST:event_btnSysLoginActionPerformed
 

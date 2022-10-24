@@ -4,17 +4,29 @@
  */
 package ui;
 
+import model.*;
+
 /**
  *
  * @author UddhavZ
  */
 public class MainJFrame extends javax.swing.JFrame {
+     PersonDirectory prd;
+     Person per;
+     City city;
+     Cities cities;
+     Community community; 
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        per = new Person();
+        prd = new PersonDirectory();
+        City.loadInitialCityAndCommunities();
+        prd.loadInitialPersons();
+
     }
 
     /**
