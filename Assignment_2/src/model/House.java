@@ -52,8 +52,4 @@ public class House {
     public String toString() {
         return houseNumber + ", " + community + ", " + city + ", " + zip;
     }
-//    public String toString() {
-//        return "House{" + "houseNumber=" + houseNumber + ", unitNumber=" + unitNumber + ", streetName=" + streetName + ", zip=" + zip + '}';
-//    }
-
 }

@@ -24,7 +24,7 @@ public class PersonDirectory {
     public int generatePersonId() {
         int id;
         do {
-            id = (int) ((Math.random() * (19999999 - 10000000)) + 10000000);
+            id = (int) ((Math.random() * (1999 - 1000)) + 1000);
         } while (persons.keySet().contains(id));
         System.out.println("Person ID:"+id);
 

@@ -46,7 +46,7 @@ public class PatientDirectory {
     public int generatePatientId(){
         int id;
         do{ 
-          id = (int)((Math.random() * (59999999 - 50000000)) + 50000000); 
+          id = (int)((Math.random() * (5999 - 5000)) + 5000); 
         }while(patients.keySet().contains(id));
         System.out.println("Patient ID:"+id);
         return id;

@@ -17,7 +17,6 @@ public class Person {
     
     private int personId;
     private String name;
-    //private int age;
     private Date dateOfBirth;
     private long phoneNumber;
     private String gender;

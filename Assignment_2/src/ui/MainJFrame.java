@@ -4,6 +4,11 @@
  */
 package ui;
 
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
 import model.*;
 
 /**
@@ -11,22 +16,18 @@ import model.*;
  * @author UddhavZ
  */
 public class MainJFrame extends javax.swing.JFrame {
-     PersonDirectory prd;
-     Person per;
-     City city;
-     Cities cities;
-     Community community; 
+     ManagementSystem system;
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
-        per = new Person();
-        prd = new PersonDirectory();
-        City.loadInitialCityAndCommunities();
-        prd.loadInitialPersons();
-
+        system = new ManagementSystem();
+        loadData();
+        HomeJPanel mjp = new HomeJPanel(mainJLayeredPane, system);
+        displayPanel(mjp);
+        setResizable(false);
     }
 
     /**
@@ -38,175 +39,79 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanelLeft = new javax.swing.JPanel();
-        btnSystemAdmin = new javax.swing.JButton();
-        btnHospitalAdmin = new javax.swing.JButton();
-        btnCommunityAdmin = new javax.swing.JButton();
-        btnDoctor = new javax.swing.JButton();
-        btnPatient = new javax.swing.JButton();
-        lblLoginAstxt = new javax.swing.JLabel();
-        jPanelRight = new javax.swing.JPanel();
+        mainJPanel = new javax.swing.JPanel();
+        topbarJPanel = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        mainJLayeredPane = new javax.swing.JLayeredPane();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        lblTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 30)); // NOI18N
+        lblTitle.setText("HOSPITAL MANAGEMENT PORTAL");
 
-        jPanelLeft.setBackground(new java.awt.Color(0, 0, 0));
-
-        btnSystemAdmin.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        btnSystemAdmin.setText("System Admin");
-        btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSystemAdminActionPerformed(evt);
-            }
-        });
-
-        btnHospitalAdmin.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        btnHospitalAdmin.setText("Hospital Admin");
-        btnHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHospitalAdminActionPerformed(evt);
-            }
-        });
-
-        btnCommunityAdmin.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        btnCommunityAdmin.setText("Community Admin");
-        btnCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommunityAdminActionPerformed(evt);
-            }
-        });
-
-        btnDoctor.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        btnDoctor.setText("Doctor");
-        btnDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoctorActionPerformed(evt);
-            }
-        });
-
-        btnPatient.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        btnPatient.setText("Patient");
-        btnPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientActionPerformed(evt);
-            }
-        });
-
-        lblLoginAstxt.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        lblLoginAstxt.setForeground(new java.awt.Color(255, 255, 255));
-        lblLoginAstxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLoginAstxt.setText("Login As ....");
-
-        javax.swing.GroupLayout jPanelLeftLayout = new javax.swing.GroupLayout(jPanelLeft);
-        jPanelLeft.setLayout(jPanelLeftLayout);
-        jPanelLeftLayout.setHorizontalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLeftLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btnSystemAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnHospitalAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCommunityAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDoctor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPatient))
-                    .addComponent(lblLoginAstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
-
-        jPanelLeftLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommunityAdmin, btnDoctor, btnHospitalAdmin, btnPatient, btnSystemAdmin, lblLoginAstxt});
-
-        jPanelLeftLayout.setVerticalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblLoginAstxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSystemAdmin)
-                    .addComponent(btnHospitalAdmin)
-                    .addComponent(btnCommunityAdmin)
-                    .addComponent(btnDoctor)
-                    .addComponent(btnPatient))
+        javax.swing.GroupLayout topbarJPanelLayout = new javax.swing.GroupLayout(topbarJPanel);
+        topbarJPanel.setLayout(topbarJPanelLayout);
+        topbarJPanelLayout.setHorizontalGroup(
+            topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topbarJPanelLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanelLeftLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCommunityAdmin, btnDoctor, btnHospitalAdmin, btnPatient, btnSystemAdmin, lblLoginAstxt});
-
-        jSplitPane1.setLeftComponent(jPanelLeft);
-
-        jPanelRight.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
-        jPanelRight.setLayout(jPanelRightLayout);
-        jPanelRightLayout.setHorizontalGroup(
-            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+        topbarJPanelLayout.setVerticalGroup(
+            topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topbarJPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblTitle)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
-        jPanelRightLayout.setVerticalGroup(
-            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
+        mainJLayeredPane.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jSplitPane1.setRightComponent(jPanelRight);
+        mainJLayeredPane.add(jPanel1, "card2");
+
+        javax.swing.GroupLayout mainJPanelLayout = new javax.swing.GroupLayout(mainJPanel);
+        mainJPanel.setLayout(mainJPanelLayout);
+        mainJPanelLayout.setHorizontalGroup(
+            mainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(topbarJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainJLayeredPane)
+        );
+        mainJPanelLayout.setVerticalGroup(
+            mainJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainJPanelLayout.createSequentialGroup()
+                .addComponent(topbarJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainJLayeredPane))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(mainJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(mainJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
-        // TODO add your handling code here:       
-        SysAdminLoginJPanel sysadminPanel = new SysAdminLoginJPanel();
-        jSplitPane1.setRightComponent(sysadminPanel);
-        
-    }//GEN-LAST:event_btnSystemAdminActionPerformed
-
-    private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
-        // TODO add your handling code here:
-        HospAdminLoginJPanel hosadminPanel = new HospAdminLoginJPanel();
-        jSplitPane1.setRightComponent(hosadminPanel);
-    }//GEN-LAST:event_btnHospitalAdminActionPerformed
-
-    private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
-        // TODO add your handling code here:
-        CommunityAdminLoginJPanel commadminPanel = new CommunityAdminLoginJPanel();
-        jSplitPane1.setRightComponent(commadminPanel);
-    }//GEN-LAST:event_btnCommunityAdminActionPerformed
-
-    private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
-        // TODO add your handling code here:
-        DoctorLoginJPanel docloginPanel = new DoctorLoginJPanel();
-        jSplitPane1.setRightComponent(docloginPanel);
-    }//GEN-LAST:event_btnDoctorActionPerformed
-
-    private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
-        // TODO add your handling code here:
-        PatientLoginJPanel patientloginPanel = new PatientLoginJPanel();
-        jSplitPane1.setRightComponent(patientloginPanel);
-    }//GEN-LAST:event_btnPatientActionPerformed
-
     /**
-     * 
-     * 
-     * 
-     * 
      * \
      * @param args the command line arguments
      */
@@ -243,14 +148,82 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCommunityAdmin;
-    private javax.swing.JButton btnDoctor;
-    private javax.swing.JButton btnHospitalAdmin;
-    private javax.swing.JButton btnPatient;
-    private javax.swing.JButton btnSystemAdmin;
-    private javax.swing.JPanel jPanelLeft;
-    private javax.swing.JPanel jPanelRight;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel lblLoginAstxt;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLayeredPane mainJLayeredPane;
+    private javax.swing.JPanel mainJPanel;
+    private javax.swing.JPanel topbarJPanel;
     // End of variables declaration//GEN-END:variables
+
+    public void displayPanel(JPanel panel) {
+        mainJLayeredPane.removeAll();
+        mainJLayeredPane.add(panel);
+        mainJLayeredPane.repaint();
+        mainJLayeredPane.revalidate();
+    }
+    
+    void loadData(){
+       
+        Person p = null;
+        Patient patient = null;
+        Encounter e = null;
+        try {
+            
+            p = new Person("Naruto","10/18/1997","Male","B-","naruto@gmail.com",9345654332L,165,60,143,"Orange County","Los Angeles",07652);
+            system.addPerson(p);
+            
+            p = new Person("Sasuke","05/24/1990","Male","O+","sasuke@gmail.com",3128831288L,190,90,56,"Orange County","Los Angeles",07652);
+            system.addPerson(p);
+            
+            p = new Person("Kakashi","04/05/1980","Male","O-","kakashi@gmail.com",7877778965L,183,80,101,"Lexington","Boston",02115);
+            system.addPerson(p);
+            
+            p = new Person("Sakura","10/10/1997","Female","AB+","sakura@gmail.com",6092658749L,180,55,9,"Manhattan","New York",05634);
+            system.addPerson(p);
+            patient = Utils.personToPatient(p);
+            
+            e=new Encounter(new Date(), 100, 100, 100, 100, 100);
+            patient.getEncounterHistory().getEncounters().add(e);
+            system.addPatient(patient);
+            
+            p = new Person("Hinata","05/01/1999","Female","B+","hinata@gmail.com",9766783421L,180,75,46,"Manhattan","New York",05634);
+            system.addPerson(p);
+            patient = Utils.personToPatient(p);
+            e=new Encounter(new Date(), 100, 100, 100, 100, 100);
+            patient.getEncounterHistory().getEncounters().add(e);
+            system.addPatient(patient);
+            
+            p = new Person("Minato","06/12/2000","Male","O+","minato@gmail.com",7824552160L,175,68,76,"NYC","New York",01235);
+            system.addPerson(p);
+            patient = Utils.personToPatient(p);
+            e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);
+            patient.getEncounterHistory().getEncounters().add(e);
+            e=new Encounter(new Date(), 95, 110, 98, 100, 80); //latest entry, date
+            patient.getEncounterHistory().getEncounters().add(e);
+            system.addPatient(patient);
+            
+            p = new Person("Tsunade","03/28/1975","Female","B-","tsunade@gmail.com",3548791642L,183,60,101,"Lexington","Boston",02215);
+            system.addPerson(p);
+            patient = Utils.personToPatient(p);
+            e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);
+            patient.getEncounterHistory().getEncounters().add(e);
+            e=new Encounter(new Date(), 99, 110, 98, 100, 80); //latest entry, date
+            patient.getEncounterHistory().getEncounters().add(e);
+            system.addPatient(patient);
+            
+            p = new Person("Kushina","03/28/1965","Female","O+","kushina@gmail.com",4587912604L,175,70,1,"NYC","New York",05432);
+            system.addPerson(p);
+            patient = Utils.personToPatient(p);
+            e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);
+            patient.getEncounterHistory().getEncounters().add(e);
+            e=new Encounter(new Date(), 99, 110, 98, 100, 80); //latest entry, date
+            patient.getEncounterHistory().getEncounters().add(e);
+            system.addPatient(patient);
+            
+            Utils.copyToClipboard(system.getPatientDirectory().getPatientIDs().get(0));
+        } catch (ParseException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
