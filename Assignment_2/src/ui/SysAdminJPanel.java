@@ -6,6 +6,7 @@ package ui;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -29,6 +30,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     ManagementSystem system;
     JLayeredPane layeredPane;
     Patient currentPatient;
+    Person newPerson;
 
     String pattern = "MM/dd/yyyy hh:mm:ss";
     SimpleDateFormat sDF = new SimpleDateFormat(pattern);
@@ -64,6 +66,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         noPatientTableStatus = new javax.swing.JLabel();
         noPersonTableStatus = new javax.swing.JLabel();
         noEncounterTableStatus = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         btnPerson = new javax.swing.JButton();
         btnPatient = new javax.swing.JButton();
         btnDoctor = new javax.swing.JButton();
@@ -76,6 +79,38 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         personTable = new javax.swing.JTable();
         lblPersontitle = new javax.swing.JLabel();
+        personAddJPanel = new javax.swing.JPanel();
+        lblCreateBloodGroup = new javax.swing.JLabel();
+        lblCreateDOB = new javax.swing.JLabel();
+        txtCreatepatientDOB = new javax.swing.JTextField();
+        lblCreateGender = new javax.swing.JLabel();
+        lblCreateWeight = new javax.swing.JLabel();
+        txtCreatepatientWeight = new javax.swing.JTextField();
+        lblCreateHeight = new javax.swing.JLabel();
+        txtCreatepatientHeight = new javax.swing.JTextField();
+        lblCreateName = new javax.swing.JLabel();
+        txtCreatepatientName = new javax.swing.JTextField();
+        CreatemaleRadioButton = new javax.swing.JRadioButton();
+        CreatefemaleRadioButton = new javax.swing.JRadioButton();
+        CreateothersRadioButton = new javax.swing.JRadioButton();
+        txtCreatepatientBloodGroup = new javax.swing.JComboBox<>();
+        lblCreatekgs = new javax.swing.JLabel();
+        lblCreatecms = new javax.swing.JLabel();
+        lblPersonalDetails = new javax.swing.JLabel();
+        txtCreatecommunity = new javax.swing.JTextField();
+        lblCreateCommunity = new javax.swing.JLabel();
+        lblCreateCity = new javax.swing.JLabel();
+        txtCreatecity = new javax.swing.JTextField();
+        lblCreateEmail = new javax.swing.JLabel();
+        txtCreateemail = new javax.swing.JTextField();
+        lblCreateZipcode = new javax.swing.JLabel();
+        txtCreatezip = new javax.swing.JTextField();
+        lblCreatePhone = new javax.swing.JLabel();
+        lblCreateAddress = new javax.swing.JLabel();
+        txtCreatephone = new javax.swing.JTextField();
+        txtCreateaddress = new javax.swing.JTextField();
+        lblPersonalDetails1 = new javax.swing.JLabel();
+        btnCreatesubmitButton = new javax.swing.JButton();
         patientJPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientTable = new javax.swing.JTable();
@@ -215,11 +250,11 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 843, Short.MAX_VALUE)
+            .addGap(0, 822, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 459, Short.MAX_VALUE)
         );
 
         sysadminJLayeredPane.add(jPanel1, "card2");
@@ -259,7 +294,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         personJPanelLayout.setHorizontalGroup(
             personJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personJPanelLayout.createSequentialGroup()
-                .addContainerGap(307, Short.MAX_VALUE)
+                .addContainerGap(286, Short.MAX_VALUE)
                 .addComponent(lblPersontitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(306, 306, 306))
             .addGroup(personJPanelLayout.createSequentialGroup()
@@ -274,10 +309,278 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                 .addComponent(lblPersontitle)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         sysadminJLayeredPane.add(personJPanel, "card3");
+
+        lblCreateBloodGroup.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateBloodGroup.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateBloodGroup.setText("Blood Group:");
+
+        lblCreateDOB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateDOB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateDOB.setText("Date of Birth:");
+
+        txtCreatepatientDOB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreatepatientDOBActionPerformed(evt);
+            }
+        });
+
+        lblCreateGender.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateGender.setText("Gender:");
+
+        lblCreateWeight.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateWeight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateWeight.setText("Weight:");
+
+        lblCreateHeight.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateHeight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateHeight.setText("Height:");
+
+        lblCreateName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateName.setText("Name:");
+
+        txtCreatepatientName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreatepatientNameActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(CreatemaleRadioButton);
+        CreatemaleRadioButton.setText("Male");
+
+        buttonGroup1.add(CreatefemaleRadioButton);
+        CreatefemaleRadioButton.setText("Female");
+
+        buttonGroup1.add(CreateothersRadioButton);
+        CreateothersRadioButton.setText("Other");
+        CreateothersRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateothersRadioButtonActionPerformed(evt);
+            }
+        });
+
+        txtCreatepatientBloodGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
+
+        lblCreatekgs.setText("Kgs");
+
+        lblCreatecms.setText("Cms");
+
+        lblPersonalDetails.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        lblPersonalDetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPersonalDetails.setText("PERSONAL DETAILS");
+
+        lblCreateCommunity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateCommunity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateCommunity.setText("Community:");
+
+        lblCreateCity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateCity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateCity.setText("City:");
+
+        lblCreateEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateEmail.setText("Email:");
+
+        lblCreateZipcode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateZipcode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateZipcode.setText("ZipCode:");
+
+        txtCreatezip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreatezipActionPerformed(evt);
+            }
+        });
+
+        lblCreatePhone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreatePhone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreatePhone.setText("Phone:");
+
+        lblCreateAddress.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCreateAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCreateAddress.setText("Address:");
+
+        lblPersonalDetails1.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        lblPersonalDetails1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPersonalDetails1.setText("COMMUNICATION DETAILS");
+
+        btnCreatesubmitButton.setBackground(new java.awt.Color(92, 184, 92));
+        btnCreatesubmitButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btnCreatesubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreatesubmitButton.setText("SUBMIT");
+        btnCreatesubmitButton.setBorder(null);
+        btnCreatesubmitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreatesubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreatesubmitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout personAddJPanelLayout = new javax.swing.GroupLayout(personAddJPanel);
+        personAddJPanel.setLayout(personAddJPanelLayout);
+        personAddJPanelLayout.setHorizontalGroup(
+            personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                        .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addComponent(lblCreateDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCreatepatientDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addComponent(lblCreateGender, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CreatemaleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CreatefemaleRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CreateothersRadioButton))
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addComponent(lblCreateCity)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCreatecity, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addComponent(lblCreateEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCreateemail, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addComponent(lblCreateAddress)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCreateaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                        .addComponent(lblCreateZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCreatezip, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                        .addComponent(lblCreatePhone)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCreatephone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                        .addComponent(lblCreateCommunity)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCreatecommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCreateWeight)
+                                    .addComponent(lblCreateHeight))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, personAddJPanelLayout.createSequentialGroup()
+                                        .addComponent(txtCreatepatientHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblCreatecms))
+                                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                                        .addComponent(txtCreatepatientWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblCreatekgs)
+                                        .addGap(3, 3, 3))))))
+                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                        .addComponent(lblCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCreatepatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreateBloodGroup)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCreatepatientBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                        .addGap(341, 341, 341)
+                        .addComponent(lblPersonalDetails1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personAddJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personAddJPanelLayout.createSequentialGroup()
+                        .addComponent(lblPersonalDetails)
+                        .addGap(401, 401, 401))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personAddJPanelLayout.createSequentialGroup()
+                        .addComponent(btnCreatesubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(440, 440, 440))))
+        );
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCreateBloodGroup, lblCreateDOB, lblCreateGender, lblCreateHeight, lblCreateName, lblCreateWeight, txtCreatepatientBloodGroup, txtCreatepatientHeight, txtCreatepatientWeight});
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CreatefemaleRadioButton, CreatemaleRadioButton, CreateothersRadioButton});
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCreateAddress, lblCreateCity, lblCreateCommunity, lblCreateEmail, lblCreatePhone, lblCreateZipcode, txtCreateaddress, txtCreatecity, txtCreatecommunity, txtCreateemail, txtCreatepatientName, txtCreatephone, txtCreatezip});
+
+        personAddJPanelLayout.setVerticalGroup(
+            personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personAddJPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(lblPersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCreateBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCreatepatientBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCreatepatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(personAddJPanelLayout.createSequentialGroup()
+                        .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCreatepatientDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreateDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CreatemaleRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCreateGender, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                            .addComponent(CreatefemaleRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CreateothersRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreatekgs, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, personAddJPanelLayout.createSequentialGroup()
+                            .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCreatepatientWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCreateWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(6, 6, 6)
+                            .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblCreateHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCreatepatientHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCreatecms)))))
+                .addGap(18, 18, 18)
+                .addComponent(lblPersonalDetails1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreatezip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreatecity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreatePhone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreatephone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(personAddJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateemail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreatecommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCreatesubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCreatecms, lblCreatekgs, txtCreatepatientBloodGroup, txtCreatepatientHeight, txtCreatepatientName, txtCreatepatientWeight});
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCreateDOB, lblCreateGender});
+
+        personAddJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCreateAddress, lblCreateCommunity, lblCreatePhone, lblCreateZipcode, txtCreateaddress, txtCreatecommunity, txtCreatephone, txtCreatezip});
+
+        sysadminJLayeredPane.add(personAddJPanel, "card6");
 
         patientTable.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -388,6 +691,11 @@ public class SysAdminJPanel extends javax.swing.JPanel {
 
         txtPatientGender.setEditable(false);
         txtPatientGender.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPatientGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientGenderActionPerformed(evt);
+            }
+        });
 
         txtPatientAge.setEditable(false);
         txtPatientAge.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -408,75 +716,76 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         patientJPanel.setLayout(patientJPanelLayout);
         patientJPanelLayout.setHorizontalGroup(
             patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientJPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jSeparator2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEncounterHistorytitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1)
-                .addGap(27, 27, 27))
             .addGroup(patientJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(txtSearchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(patientJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(lblEncounterHistorytitle)
+                .addGap(22, 22, 22)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientJPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patientJPanelLayout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(lblPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtSearchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(patientJPanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(348, 348, 348)
                         .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(patientJPanelLayout.createSequentialGroup()
-                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, patientJPanelLayout.createSequentialGroup()
-                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLastVisit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(patientJPanelLayout.createSequentialGroup()
-                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, patientJPanelLayout.createSequentialGroup()
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, patientJPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(patientJPanelLayout.createSequentialGroup()
+                            .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(patientJPanelLayout.createSequentialGroup()
+                                    .addComponent(lblLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(52, 52, 52)
-                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(patientJPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(patientJPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(txtPatientName)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(patientJPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(230, 230, 230))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblHeight, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblWeight, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPatientWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPatientHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPatientBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
-            .addGroup(patientJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(patientJPanelLayout.createSequentialGroup()
-                .addGap(275, 275, 275)
+                .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(252, 252, 252))
+                .addGap(237, 237, 237))
         );
 
         patientJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel10, jLabel5, jLabel6, jLabel8, jLabel9, lblAge, lblHeight, lblLastVisit, lblName, lblWeight});
@@ -485,45 +794,44 @@ public class SysAdminJPanel extends javax.swing.JPanel {
 
         patientJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnModify, btnSearch, lblPatientID});
 
+        patientJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jSeparator1, jSeparator2});
+
         patientJPanelLayout.setVerticalGroup(
             patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientJPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(13, 13, 13)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(patientJPanelLayout.createSequentialGroup()
-                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patientJPanelLayout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(txtLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(patientJPanelLayout.createSequentialGroup()
-                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(patientJPanelLayout.createSequentialGroup()
-                                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(patientJPanelLayout.createSequentialGroup()
-                                        .addComponent(lblLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(patientJPanelLayout.createSequentialGroup()
+                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(patientJPanelLayout.createSequentialGroup()
+                                .addComponent(lblLastVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(patientJPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(patientJPanelLayout.createSequentialGroup()
                             .addGap(78, 78, 78)
@@ -542,23 +850,25 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                             .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtPatientBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModify))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblEncounterHistorytitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(patientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEncounterHistorytitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         patientJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel10, jLabel5, jLabel6, jLabel8, jLabel9, lblAge, lblHeight, lblLastVisit, lblName, lblWeight, txtAddress, txtEmail, txtLastVisit, txtPatientAge, txtPatientBloodGroup, txtPatientGender, txtPatientHeight, txtPatientName, txtPatientWeight, txtPhone});
 
         patientJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnDelete, btnModify, btnSearch, lblPatientID, txtSearchPatientID});
+
+        patientJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jSeparator1, jSeparator2});
 
         sysadminJLayeredPane.add(patientJPanel, "card4");
 
@@ -765,7 +1075,6 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                     .addGroup(patientModifyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtPatientGenderModify, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(patientModifyJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientModifyJPanelLayout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -804,7 +1113,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtZipCodeModify, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModifySubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         patientModifyJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnModifySubmit, jLabel21, jLabel3});
@@ -820,20 +1129,22 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sysadminJLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnCommunity)
+                .addGap(10, 10, 10)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(sysadminJLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCommunity, btnDoctor, btnHospital, btnLogOut, btnPatient, btnPerson});
@@ -841,7 +1152,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCommunity)
                     .addComponent(btnPatient)
@@ -849,9 +1160,8 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnPerson)
                     .addComponent(btnDoctor)
                     .addComponent(btnHospital))
-                .addGap(18, 18, 18)
-                .addComponent(sysadminJLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(10, 10, 10)
+                .addComponent(sysadminJLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCommunity, btnDoctor, btnHospital, btnLogOut, btnPatient, btnPerson});
@@ -1125,10 +1435,153 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientGenderModifyActionPerformed
 
+    private void txtPatientGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientGenderActionPerformed
+
+    private void txtCreatepatientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreatepatientNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCreatepatientNameActionPerformed
+
+    private void CreateothersRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateothersRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CreateothersRadioButtonActionPerformed
+
+    private void txtCreatepatientDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreatepatientDOBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCreatepatientDOBActionPerformed
+
+    private void txtCreatezipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreatezipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCreatezipActionPerformed
+
+    private void btnCreatesubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatesubmitButtonActionPerformed
+        int hNo = -1;
+        float height = -1;
+        float weight = -1;
+        Date dob = null;
+        this.newPerson = new Person();
+        
+        if(txtCreatepatientName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please provide name!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        newPerson.setName(txtCreatepatientName.getText());
+        
+        if(txtCreatepatientBloodGroup.getSelectedItem().equals("Select")){
+            JOptionPane.showMessageDialog(this, "Please select blood group!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        newPerson.setBloodGroup((String) txtCreatepatientBloodGroup.getSelectedItem());
+        
+        try{
+            SimpleDateFormat sDF = new SimpleDateFormat("MM/dd/yyyy");
+            sDF.setLenient(false);
+            dob = sDF.parse(txtCreatepatientDOB.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide date in MM/dd/yyyy format!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(Utils.isDateAfterToday(dob)){
+            JOptionPane.showMessageDialog(this, "Please provide correct date of birth!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;            
+        }
+        
+        newPerson.setDateOfBirth(dob);
+        
+        try{
+            height = Float.parseFloat(txtCreatepatientHeight.getText());
+            weight = Float.parseFloat(txtCreatepatientWeight.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide weight and height in numeric!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        newPerson.setHeight(height);
+        newPerson.setWeight(weight);
+        
+        if(genderRadioButtonGroup.getSelection()==null){
+            JOptionPane.showMessageDialog(this, "Please select the gender!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;            
+        }
+        
+        newPerson.setGender(genderRadioButtonGroup.getSelection().getActionCommand());
+
+        try{
+            hNo = Integer.parseInt(address.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide House Number!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.getHouse().setHouseNumber(hNo);
+
+        if(community.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please provide Community!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.getHouse().setCommunity(community.getText());
+
+        if(city.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please provide City!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.getHouse().setCity(city.getText());
+
+        int zipCode = -1;
+
+        try{
+            zipCode = Integer.parseInt(zip.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide zip code as numbers!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.getHouse().setZip(zipCode);
+
+        String regex = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email.getText());
+
+        if(!matcher.matches()){
+            JOptionPane.showMessageDialog(this, "Please provide City!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.setEmail(email.getText());
+
+        long phno = -1;
+
+        try{
+            phno = Long.parseLong(phone.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide correct phone Number!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        newPerson.setPhoneNumber(phno);
+
+        int id = system.addPerson(newPerson);
+        JOptionPane.showMessageDialog(this, "Person added successfully!!\nPerson ID: "+id, "Info", JOptionPane.INFORMATION_MESSAGE);
+        Utils.copyToClipboard(id);
+        emptyForm();
+        MainJPanel mjp = new MainJPanel(layeredPane, system);
+        displayPanel(mjp);
+    }//GEN-LAST:event_btnCreatesubmitButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton CreatefemaleRadioButton;
+    private javax.swing.JRadioButton CreatemaleRadioButton;
+    private javax.swing.JRadioButton CreateothersRadioButton;
     private javax.swing.JLabel ageGroupTableStatus;
     private javax.swing.JButton btnCommunity;
+    private javax.swing.JButton btnCreatesubmitButton;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDoctor;
     private javax.swing.JButton btnHospital;
@@ -1138,6 +1591,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPatient;
     private javax.swing.JButton btnPerson;
     private javax.swing.JButton btnSearch;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -1166,11 +1620,27 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblCreateAddress;
+    private javax.swing.JLabel lblCreateBloodGroup;
+    private javax.swing.JLabel lblCreateCity;
+    private javax.swing.JLabel lblCreateCommunity;
+    private javax.swing.JLabel lblCreateDOB;
+    private javax.swing.JLabel lblCreateEmail;
+    private javax.swing.JLabel lblCreateGender;
+    private javax.swing.JLabel lblCreateHeight;
+    private javax.swing.JLabel lblCreateName;
+    private javax.swing.JLabel lblCreatePhone;
+    private javax.swing.JLabel lblCreateWeight;
+    private javax.swing.JLabel lblCreateZipcode;
+    private javax.swing.JLabel lblCreatecms;
+    private javax.swing.JLabel lblCreatekgs;
     private javax.swing.JLabel lblEncounterHistorytitle;
     private javax.swing.JLabel lblHeight;
     private javax.swing.JLabel lblLastVisit;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPatientID;
+    private javax.swing.JLabel lblPersonalDetails;
+    private javax.swing.JLabel lblPersonalDetails1;
     private javax.swing.JLabel lblPersontitle;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel noEncounterTableStatus;
@@ -1179,6 +1649,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel patientJPanel;
     private javax.swing.JPanel patientModifyJPanel;
     private javax.swing.JTable patientTable;
+    private javax.swing.JPanel personAddJPanel;
     private javax.swing.JPanel personJPanel;
     private javax.swing.JTable personTable;
     private javax.swing.JLayeredPane sysadminJLayeredPane;
@@ -1187,6 +1658,17 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAddressModify;
     private javax.swing.JTextField txtCityModify;
     private javax.swing.JTextField txtCommunityModify;
+    private javax.swing.JTextField txtCreateaddress;
+    private javax.swing.JTextField txtCreatecity;
+    private javax.swing.JTextField txtCreatecommunity;
+    private javax.swing.JTextField txtCreateemail;
+    private javax.swing.JComboBox<String> txtCreatepatientBloodGroup;
+    private javax.swing.JTextField txtCreatepatientDOB;
+    private javax.swing.JTextField txtCreatepatientHeight;
+    private javax.swing.JTextField txtCreatepatientName;
+    private javax.swing.JTextField txtCreatepatientWeight;
+    private javax.swing.JTextField txtCreatephone;
+    private javax.swing.JTextField txtCreatezip;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmailModify;
     private javax.swing.JTextField txtLastVisit;

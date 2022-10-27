@@ -188,7 +188,7 @@ public class MainJFrame extends javax.swing.JFrame {
             
             p = new Person("Hinata","05/01/1999","Female","B+","hinata@gmail.com",9766783421L,180,75,46,"Manhattan","New York",05634);
             system.addPerson(p);
-            patient = Utils.personToPatient(p);
+            patient = Utils.personToPatient(p); 
             e=new Encounter(new Date(), 100, 100, 100, 100, 100);
             patient.getEncounterHistory().getEncounters().add(e);
             system.addPatient(patient);
