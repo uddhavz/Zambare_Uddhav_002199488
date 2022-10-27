@@ -31,6 +31,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     JLayeredPane layeredPane;
     Patient currentPatient;
     Person newPerson;
+    Person selectedPerson = new Person();
 
     String pattern = "MM/dd/yyyy hh:mm:ss";
     SimpleDateFormat sDF = new SimpleDateFormat(pattern);
@@ -79,7 +80,9 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         personTable = new javax.swing.JTable();
         lblPersontitle = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddPerson = new javax.swing.JButton();
+        btnAddAsPatient = new javax.swing.JButton();
+        patientID = new javax.swing.JTextField();
         personAddJPanel = new javax.swing.JPanel();
         lblCreateBloodGroup = new javax.swing.JLabel();
         lblCreateDOB = new javax.swing.JLabel();
@@ -283,6 +286,9 @@ public class SysAdminJPanel extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personTableMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                personTableMousePressed(evt);
+            }
         });
         jScrollPane3.setViewportView(personTable);
 
@@ -290,12 +296,21 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         lblPersontitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPersontitle.setText("PERSON CATALOG");
 
-        jButton1.setText("Add new");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddPerson.setText("Add new Person");
+        btnAddPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddPersonActionPerformed(evt);
             }
         });
+
+        btnAddAsPatient.setText("Add Encounter");
+        btnAddAsPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAsPatientActionPerformed(evt);
+            }
+        });
+
+        patientID.setText("Enter ID / Patient ID");
 
         javax.swing.GroupLayout personJPanelLayout = new javax.swing.GroupLayout(personJPanel);
         personJPanel.setLayout(personJPanelLayout);
@@ -306,14 +321,20 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                 .addComponent(lblPersontitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(306, 306, 306))
             .addGroup(personJPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
+                .addComponent(btnAddPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(patientID, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAddAsPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+            .addGroup(personJPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane3)
                 .addContainerGap())
-            .addGroup(personJPanelLayout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        personJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddAsPatient, btnAddPerson, patientID});
+
         personJPanelLayout.setVerticalGroup(
             personJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personJPanelLayout.createSequentialGroup()
@@ -322,9 +343,14 @@ public class SysAdminJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGroup(personJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddPerson)
+                    .addComponent(btnAddAsPatient)
+                    .addComponent(patientID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
+
+        personJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddAsPatient, btnAddPerson, patientID});
 
         sysadminJLayeredPane.add(personJPanel, "card3");
 
@@ -1230,14 +1256,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHospitalActionPerformed
 
     private void personTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personTableMouseClicked
-        int row = personTable.rowAtPoint(evt.getPoint());
-        if (!personTable.getModel().getValueAt(row, 1).equals("-")) {
-            int id = (int) personTable.getModel().getValueAt(row, 1);
-            Utils.copyToClipboard(id);
-            return;
-        }
-        int id = (int) personTable.getModel().getValueAt(row, 0);
-        Utils.copyToClipboard(id);
+        
     }//GEN-LAST:event_personTableMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -1601,9 +1620,54 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         populatePersonCatalog();
     }//GEN-LAST:event_btnCreatesubmitButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonActionPerformed
         displayPanel(sysadminJLayeredPane, personAddJPanel);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddPersonActionPerformed
+
+    private void btnAddAsPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAsPatientActionPerformed
+        int pID = -1;
+        try{
+            pID=Integer.parseInt(patientID.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Please provide a number!", "Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Patient patient = new Patient();
+        if(pID>5000 && pID<5999){
+            if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(pID)){
+                JOptionPane.showMessageDialog(this, "Patient ID doesn't exist!", "Error",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            patient = system.getPatientDirectory().getPatient(pID);
+        }
+        else if(pID>1000 && pID<1999){
+            if(system.getPatientDirectory().getPersonIDs().contains(pID)){
+                int patientId = system.getPatientDirectory().getPatientId(pID);
+                patient = system.getPatientDirectory().getPatient(patientId);
+                //JOptionPane.showMessageDialog(this, "Next time!! Please use patient ID:"+patientId+ ".", "Info",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(!system.getPersonDirectory().getPersonIds().contains(pID)){
+                JOptionPane.showMessageDialog(this, "Person ID doesn't exist!", "Error",JOptionPane.ERROR_MESSAGE);
+                return;
+            }else{
+                Person person = system.getPersonDirectory().getPerson(pID);
+                patient = Utils.personToPatient(person);
+                int id = system.addPatient(patient);
+                JOptionPane.showMessageDialog(this, "Patient successfully created!!\nPatient ID: "+id, "Info", JOptionPane.INFORMATION_MESSAGE);
+                Utils.copyToClipboard(id);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Wrong Person/Patient ID!!", "Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        EncounterJPanel ejp = new EncounterJPanel(layeredPane, patient, system);
+        displayPanel(layeredPane,ejp);
+
+    }//GEN-LAST:event_btnAddAsPatientActionPerformed
+
+    private void personTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personTableMousePressed
+        
+    }//GEN-LAST:event_personTableMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1612,6 +1676,8 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton CreatemaleRadioButton;
     private javax.swing.JRadioButton CreateothersRadioButton;
     private javax.swing.JLabel ageGroupTableStatus;
+    private javax.swing.JButton btnAddAsPatient;
+    private javax.swing.JButton btnAddPerson;
     private javax.swing.JButton btnCommunity;
     private javax.swing.JButton btnCreatesubmitButton;
     private javax.swing.JButton btnDelete;
@@ -1623,7 +1689,6 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPatient;
     private javax.swing.JButton btnPerson;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -1678,6 +1743,7 @@ public class SysAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel noEncounterTableStatus;
     private javax.swing.JLabel noPatientTableStatus;
     private javax.swing.JLabel noPersonTableStatus;
+    private javax.swing.JTextField patientID;
     private javax.swing.JPanel patientJPanel;
     private javax.swing.JPanel patientModifyJPanel;
     private javax.swing.JTable patientTable;
@@ -1863,4 +1929,6 @@ public class SysAdminJPanel extends javax.swing.JPanel {
         txtCreatephone.setText("");
         txtCreatezip.setText("");
     }
+    
+    
 }
