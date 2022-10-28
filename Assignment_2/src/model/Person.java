@@ -25,6 +25,11 @@ public class Person {
     private float height;
     private float weight;
     House house;
+    
+    private String designation;
+    private String type;
+    private String qualification;
+    
 
     public Person() {
         house = new House();
@@ -32,7 +37,7 @@ public class Person {
     
     public Person(String name, String dob, String gender, String bG, String email, 
             String phoneNumber, String height, String weight, String hNo, String community,
-            String city, String zipCode) throws ParseException {
+            String city, String zipCode, String designation, String type, String qualification) throws ParseException {
     
         this.name = name;
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -49,11 +54,14 @@ public class Person {
         house.setCommunity(community);
         house.setCity(city);
         house.setZip(Integer.parseInt(zipCode));
+        this.designation = designation;
+        this.type = type;
+        this.qualification = qualification;
     }   
 
     public Person(String name, String dob, String gender, String bG, String email, 
             long phoneNumber, float height, float weight, int hNo, String community,
-            String city, int zipCode) throws ParseException {
+            String city, int zipCode, String designation, String type, String qualification) throws ParseException {
         this.name = name;
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         sdf.setLenient(false);
@@ -69,6 +77,9 @@ public class Person {
         house.setCommunity(community);
         house.setCity(city);
         house.setZip(zipCode);
+        this.designation = designation;
+        this.type = type;
+        this.qualification = qualification;
     }   
 
     public int getPersonId() {
@@ -153,7 +164,7 @@ public class Person {
     
     @Override
     public String toString() {
-        return "Person{" + "id=" + personId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", bloodGroup=" + bloodGroup + ", height=" + height + ", weight=" + weight + ", house=" + house + '}';
+        return "Person{" + "id=" + personId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", bloodGroup=" + bloodGroup + ", height=" + height + ", weight=" + weight + ", house=" + house + ", designation=" + designation + ", type=" + type + ", qualification=" + qualification + '}';
     }
     
   

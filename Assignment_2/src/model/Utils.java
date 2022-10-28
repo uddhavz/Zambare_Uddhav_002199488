@@ -57,6 +57,36 @@ public class Utils {
         person.setPhoneNumber(patient.getPhoneNumber());
         return person;
     }
+    
+    public static Doctor personToDoctor(Person person) {
+        Doctor doctor = new Doctor();
+        doctor.setBloodGroup(person.getBloodGroup());
+        doctor.setDateOfBirth(person.getDateOfBirth());
+        doctor.setEmail(person.getEmail());
+        doctor.setGender(person.getGender());
+        doctor.setHeight(person.getHeight());
+        doctor.setWeight(person.getWeight());
+        doctor.setHouse(person.getHouse());
+        doctor.setName(person.getName());
+        doctor.setPersonId(person.getPersonId());
+        doctor.setPhoneNumber(person.getPhoneNumber());
+        return doctor;
+    }
+
+    public static Person doctorToPerson(Doctor doctor) {
+        Person person = new Person();
+        person.setBloodGroup(doctor.getBloodGroup());
+        person.setDateOfBirth(doctor.getDateOfBirth());
+        person.setEmail(doctor.getEmail());
+        person.setGender(doctor.getGender());
+        person.setHeight(doctor.getHeight());
+        person.setWeight(doctor.getWeight());
+        person.setHouse(doctor.getHouse());
+        person.setName(doctor.getName());
+        person.setPersonId(doctor.getPersonId());
+        person.setPhoneNumber(doctor.getPhoneNumber());
+        return person;
+    }
 
     public static int ageCalculator(Date date) {
         Instant instant = date.toInstant();

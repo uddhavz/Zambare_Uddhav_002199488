@@ -166,19 +166,20 @@ public class MainJFrame extends javax.swing.JFrame {
        
         Person p = null;
         Patient patient = null;
+        Doctor doctor = null;
         Encounter e = null;
         try {
             
-            p = new Person("Naruto","10/18/1997","Male","B-","naruto@gmail.com",9345654332L,165,60,143,"Orange County","Los Angeles",07652);
+            p = new Person("Naruto","10/18/1997","Male","B-","naruto@gmail.com",9345654332L,165,60,143,"Orange County","Los Angeles",07652,null, null, null);
             system.addPerson(p);
             
-            p = new Person("Sasuke","05/24/1990","Male","O+","sasuke@gmail.com",3128831288L,190,90,56,"Orange County","Los Angeles",07652);
+            p = new Person("Sasuke","05/24/1990","Male","O+","sasuke@gmail.com",3128831288L,190,90,56,"Orange County","Los Angeles",07652,null, null, null);
             system.addPerson(p);
             
-            p = new Person("Kakashi","04/05/1980","Male","O-","kakashi@gmail.com",7877778965L,183,80,101,"Lexington","Boston",02115);
+            p = new Person("Kakashi","04/05/1980","Male","O-","kakashi@gmail.com",7877778965L,183,80,101,"Lexington","Boston",02115,null, null, null);
             system.addPerson(p);
             
-            p = new Person("Sakura","10/10/1997","Female","AB+","sakura@gmail.com",6092658749L,180,55,9,"Manhattan","New York",05634);
+            p = new Person("Sakura","10/10/1997","Female","AB+","sakura@gmail.com",6092658749L,180,55,9,"Manhattan","New York",05634,null, null, null);
             system.addPerson(p);
             patient = Utils.personToPatient(p);
             
@@ -186,15 +187,14 @@ public class MainJFrame extends javax.swing.JFrame {
             patient.getEncounterHistory().getEncounters().add(e);
             system.addPatient(patient);
             
-            p = new Person("Hinata","05/01/1999","Female","B+","hinata@gmail.com",9766783421L,180,75,46,"Manhattan","New York",05634);
+            p = new Person("Hinata","05/01/1999","Female","B+","hinata@gmail.com",9766783421L,180,75,46,"Manhattan","New York",05634,null, null, null);
             system.addPerson(p);
             patient = Utils.personToPatient(p); 
             e=new Encounter(new Date(), 100, 100, 100, 100, 100);
             patient.getEncounterHistory().getEncounters().add(e);
             system.addPatient(patient);
             
-            p = new Person("Minato","06/12/2000","Male","O+","minato@gmail.com",7824552160L,175,68,76,"NYC","New York",01235);
-            system.addPerson(p);
+            p = new Person("Minato","06/12/2000","Male","O+","minato@gmail.com",7824552160L,175,68,76,"NYC","New York",01235,null, null, null);
             patient = Utils.personToPatient(p);
             e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);
             patient.getEncounterHistory().getEncounters().add(e);
@@ -202,16 +202,12 @@ public class MainJFrame extends javax.swing.JFrame {
             patient.getEncounterHistory().getEncounters().add(e);
             system.addPatient(patient);
             
-            p = new Person("Tsunade","03/28/1975","Female","B-","tsunade@gmail.com",3548791642L,183,60,101,"Lexington","Boston",02215);
+            p = new Person("Tsunade","03/28/1975","Female","B-","tsunade@gmail.com",3548791642L,183,60,101,"Lexington","Boston",02215,"Head Doctor", "Ortho", "MD");
             system.addPerson(p);
-            patient = Utils.personToPatient(p);
-            e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);
-            patient.getEncounterHistory().getEncounters().add(e);
-            e=new Encounter(new Date(), 99, 110, 98, 100, 80); //latest entry, date
-            patient.getEncounterHistory().getEncounters().add(e);
-            system.addPatient(patient);
+            doctor = Utils.personToDoctor(p);
+            system.addDoctor(doctor);
             
-            p = new Person("Kushina","03/28/1965","Female","O+","kushina@gmail.com",4587912604L,175,70,1,"NYC","New York",05432);
+            p = new Person("Kushina","03/28/1965","Female","O+","kushina@gmail.com",4587912604L,175,70,1,"NYC","New York",05432,null, null, null);
             system.addPerson(p);
             patient = Utils.personToPatient(p);
             e=new Encounter(Utils.dateTime(2019, 8, 8, 10, 30), 99, 110, 98, 100, 80);

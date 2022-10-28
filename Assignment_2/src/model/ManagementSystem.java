@@ -17,16 +17,22 @@ public class ManagementSystem {
     
     PatientDirectory patientDirectory;
     PersonDirectory personDirectory;
+    DoctorDirectory doctorDirectory;
     HashMap<String, City> cities;
 
     public ManagementSystem() {
         this.patientDirectory = new PatientDirectory();
         this.personDirectory = new PersonDirectory(); 
+        this.doctorDirectory = new DoctorDirectory();
         this.cities = new HashMap<String, City>();
     }
     
     public int addPatient(Patient patient) {
         return patientDirectory.addPatient(patient);
+    }
+    
+    public int addDoctor(Doctor doctor) {
+        return doctorDirectory.addDoctor(doctor);
     }
     
     public int addPerson(Person person) {
@@ -39,6 +45,10 @@ public class ManagementSystem {
     
     public PatientDirectory getPatientDirectory() {
         return patientDirectory;
+    }
+    
+    public DoctorDirectory getDoctorDirectory() {
+        return doctorDirectory;
     }
 
     public PersonDirectory getPersonDirectory() {
