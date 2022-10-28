@@ -18,9 +18,9 @@ public class City {
     private String name;
     private HashMap<String, Community> communities;
 
-    public City() {
-        communities = new HashMap<String, Community>();
-    }
+//    public City() {
+//        communities = new HashMap<String, Community>();
+//    }
     public City(String name) {
         communities = new HashMap<String, Community>();
         this.name = name;

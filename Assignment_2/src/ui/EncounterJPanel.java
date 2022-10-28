@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import model.*;
 
 /**
@@ -28,6 +29,10 @@ public class EncounterJPanel extends javax.swing.JPanel {
     
     public EncounterJPanel(JLayeredPane layeredPane, Patient patient, ManagementSystem system) {
         initComponents();
+        this.layeredPane=layeredPane;
+        this.system = system;
+        this.currentPatient =patient;
+        updatePatientView();
     }
 
     /**
@@ -319,14 +324,10 @@ public class EncounterJPanel extends javax.swing.JPanel {
         encounter.setlBloodPressure(patientLBloodPressure);
         encounter.setVisitDate(new Date());
         system.getPatientDirectory().getPatient(currentPatient.getPatientID()).getEncounterHistory().addEncounter(encounter);
-        String successMessage = "Vitals are added successfully!!";
-        if(!encounter.isNormal()){
-            successMessage+="\nPatients Condition is Abnormal";
-        }
-        JOptionPane.showMessageDialog(this, successMessage, "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Vitals are added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
 
-//        Person j mjp = new MainJPanel(layeredPane, system);
-//        displayPanel(mjp);
+        SysAdminJPanel sajp = new SysAdminJPanel(layeredPane, system);
+        displayPanel(sajp);
 
     }//GEN-LAST:event_submitBtnActionPerformed
 
@@ -362,4 +363,29 @@ public class EncounterJPanel extends javax.swing.JPanel {
     private javax.swing.JButton submitBtn;
     private javax.swing.JTextField temperature;
     // End of variables declaration//GEN-END:variables
+
+    public void displayPanel(JPanel panel) {
+        layeredPane.removeAll();
+        layeredPane.add(panel);
+        layeredPane.repaint();
+        layeredPane.revalidate();
+    }
+    
+    void updatePatientView(){
+        
+        sDF.setLenient(false);
+        int age = Utils.ageCalculator(currentPatient.getDateOfBirth());
+        
+        patientID.setText(String.valueOf(currentPatient.getPatientID()));
+        patientAge.setText(String.valueOf(age));
+        patientName.setText(String.valueOf(currentPatient.getName()));
+        if(!currentPatient.getEncounterHistory().getEncounters().isEmpty()){
+            int size = currentPatient.getEncounterHistory().getEncounters().size();
+            patientVisit.setText(sDF.format(currentPatient.getEncounterHistory().getEncounters().get(size-1).getVisitDate()));
+        }else{
+            patientVisit.setText("First Visit");
+        }
+    }
+
+
 }
