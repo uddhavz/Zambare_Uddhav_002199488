@@ -60,7 +60,7 @@ public class DoctorDirectory {
         return id;
     }
     
-    public void removePatient(int id) {
+    public void removeDoctor(int id) {
         this.personDoctorId.remove(this.doctors.get(id).getPersonId());
         this.doctors.remove(id);
     }

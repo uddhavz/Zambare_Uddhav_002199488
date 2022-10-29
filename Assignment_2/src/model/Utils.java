@@ -70,6 +70,10 @@ public class Utils {
         doctor.setName(person.getName());
         doctor.setPersonId(person.getPersonId());
         doctor.setPhoneNumber(person.getPhoneNumber());
+        doctor.setQualification(person.getQualification());
+        doctor.setType(person.getType());
+        doctor.setDesignation(person.getDesignation());
+        
         return doctor;
     }
 
@@ -85,6 +89,10 @@ public class Utils {
         person.setName(doctor.getName());
         person.setPersonId(doctor.getPersonId());
         person.setPhoneNumber(doctor.getPhoneNumber());
+        person.setQualification(doctor.getQualification());
+        person.setType(doctor.getType());
+        person.setDesignation(doctor.getDesignation());
+        
         return person;
     }
 

@@ -42,10 +42,12 @@ public class HomeJPanel extends javax.swing.JPanel {
         btnHospitalAdmin = new javax.swing.JButton();
         btnSystemAdmin = new javax.swing.JButton();
 
-        lblLoginAstxt.setFont(new java.awt.Font("Algerian", 1, 36)); // NOI18N
-        lblLoginAstxt.setForeground(new java.awt.Color(102, 102, 102));
+        lblLoginAstxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
         lblLoginAstxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLoginAstxt.setText("Login");
+        lblLoginAstxt.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblLoginAstxt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblLoginAstxt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnPatient.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         btnPatient.setText("Patient");
@@ -114,9 +116,9 @@ public class HomeJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(108, 108, 108)
                 .addComponent(lblLoginAstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCommunityAdmin)
                     .addComponent(btnSystemAdmin)

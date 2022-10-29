@@ -47,24 +47,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 30)); // NOI18N
-        lblTitle.setText("HOSPITAL MANAGEMENT PORTAL");
+        topbarJPanel.setBackground(new java.awt.Color(0, 0, 0));
+
+        lblTitle.setBackground(new java.awt.Color(0, 0, 0));
+        lblTitle.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(204, 204, 204));
+        lblTitle.setText("Longwood Medical Center");
 
         javax.swing.GroupLayout topbarJPanelLayout = new javax.swing.GroupLayout(topbarJPanel);
         topbarJPanel.setLayout(topbarJPanelLayout);
         topbarJPanelLayout.setHorizontalGroup(
             topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topbarJPanelLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topbarJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(150, 150, 150))
         );
         topbarJPanelLayout.setVerticalGroup(
             topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topbarJPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(21, 21, 21)
                 .addComponent(lblTitle)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         mainJLayeredPane.setLayout(new java.awt.CardLayout());
@@ -77,7 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 513, Short.MAX_VALUE)
         );
 
         mainJLayeredPane.add(jPanel1, "card2");
@@ -94,7 +98,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(mainJPanelLayout.createSequentialGroup()
                 .addComponent(topbarJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainJLayeredPane))
+                .addComponent(mainJLayeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

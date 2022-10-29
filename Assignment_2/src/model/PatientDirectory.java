@@ -64,6 +64,7 @@ public class PatientDirectory {
         this.personPatientId.remove(this.patients.get(id).getPersonId());
         this.patients.remove(id);
     }
+    
 
     @Override
     public String toString() {

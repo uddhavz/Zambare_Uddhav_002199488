@@ -11,8 +11,6 @@ package model;
 public class Doctor extends Person{
     
     private int doctorID;
-    private String designation;
-    private int experience;
 
     public int getDoctorID() {
         return doctorID;
@@ -20,22 +18,6 @@ public class Doctor extends Person{
 
     public void setDoctorID(int doctorID) {
         this.doctorID = doctorID;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
     }
     
     @Override
