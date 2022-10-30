@@ -160,7 +160,7 @@ public class HomeJPanel extends javax.swing.JPanel {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SysAdminLoginJPanel sysadminPanel = new SysAdminLoginJPanel(layeredPane, system);
+        LoginJPanel sysadminPanel = new LoginJPanel(layeredPane, system);
         displayPanel(sysadminPanel);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
 

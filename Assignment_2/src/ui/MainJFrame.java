@@ -25,7 +25,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = new ManagementSystem();
         loadData();
-        HomeJPanel mjp = new HomeJPanel(mainJLayeredPane, system);
+        LoginJPanel mjp = new LoginJPanel(mainJLayeredPane, system);
         displayPanel(mjp);
         setResizable(false);
     }
@@ -190,7 +190,7 @@ public class MainJFrame extends javax.swing.JFrame {
             p = new Person("Kakashi","04/05/1980","Male","O-","kakashi@gmail.com",7877778965L,183,80,101,"Lexington","Boston",02115,null, null, null);
             system.addPerson(p);
             
-            p = new Person("Sakura","10/10/1997","Female","AB+","sakura@gmail.com",6092658749L,180,55,9,"Manhattan","New York",05634,null, null, null);
+            p = new Person("Madara","10/10/1997","Male","AB+","sakura@gmail.com",6092658749L,180,55,9,"Manhattan","New York",05634,null, null, null);
             system.addPerson(p);
             patient = Utils.personToPatient(p);
             
@@ -219,6 +219,18 @@ public class MainJFrame extends javax.swing.JFrame {
             doctor = Utils.personToDoctor(p);
             system.addDoctor(doctor);
             System.out.println("Tsunade 03/28/1975");
+            
+            p = new Person("Sakura","06/28/1975","Female","B-","tsunade@gmail.com",8888791642L,145,55,101,"Manhattan","New York",05634,"Jr Doctor", "Ortho", "MBBS");
+            system.addPerson(p);
+            doctor = Utils.personToDoctor(p);
+            system.addDoctor(doctor);
+            System.out.println("Sakura 06/28/1975");
+            
+            p = new Person("Shizune","03/12/1975","Female","B-","tsunade@gmail.com",3777791642L,163,70,101,"NYC","New York",01235,"Sub Doctor", "Dentist", "MS");
+            system.addPerson(p);
+            doctor = Utils.personToDoctor(p);
+            system.addDoctor(doctor);
+            System.out.println("Shizune 03/12/1975");
             
             p = new Person("Kushina","03/28/1965","Female","O+","kushina@gmail.com",4587912604L,175,70,1,"NYC","New York",05432,null, null, null);
             system.addPerson(p);

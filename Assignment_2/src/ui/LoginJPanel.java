@@ -14,7 +14,7 @@ import model.*;
  *
  * @author UddhavZ
  */
-public class SysAdminLoginJPanel extends javax.swing.JPanel {
+public class LoginJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form SysAdminJPanel
@@ -25,7 +25,7 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
     Doctor currentDoctor;
     Person currentPerson;
     
-    public SysAdminLoginJPanel(JLayeredPane layeredPane, ManagementSystem system) {
+    public LoginJPanel(JLayeredPane layeredPane, ManagementSystem system) {
         initComponents();
 //        SysAdminJPanel sajp = new SysAdminJPanel(mainJLayeredPane, system);
 //        displayPanel(mjp);
@@ -134,8 +134,8 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
             displayPanel(sysadminPanel);
         }
         else if((User.equals("hospadmin"))||(Pass.equals("hadmin"))){
-            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-            displayPanel(sysadminPanel);  
+            HospAdminJPanel hospadminPanel = new HospAdminJPanel(layeredPane, system);
+            displayPanel(hospadminPanel);  
         }
         else if((User.equals("communityadmin"))||(Pass.equals("cadmin"))){
             SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
@@ -157,24 +157,8 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
             String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
             System.out.print("patientID:"+PasswordCheck);
             if(Pass.equals(PasswordCheck)){
-                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-                displayPanel(sysadminPanel);
-            }
-        }
-        else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
-            int User1 = Integer.parseInt(User);
-            if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
-                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
-            }
-            currentPatient = system.getPatientDirectory().getPatient(User1);
-            String name = currentPatient.getName();
-            SimpleDateFormat sDF = new SimpleDateFormat("MM/dd/yyyy");
-            String dob = sDF.format(currentPatient.getDateOfBirth());
-            String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
-            System.out.print("patientID:"+PasswordCheck);
-            if(Pass.equals(PasswordCheck)){
-                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-                displayPanel(sysadminPanel);
+                PatientJPanel patientPanel = new PatientJPanel(layeredPane, system, User1);
+                displayPanel(patientPanel);
             }
         }
         else if(Integer.parseInt(User)>8000 && Integer.parseInt(User)<8999){
@@ -192,6 +176,11 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
                 SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
                 displayPanel(sysadminPanel);
             }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+            txtUsername.setText("");
+            pfPassword.setText("");
         }
         
                 
