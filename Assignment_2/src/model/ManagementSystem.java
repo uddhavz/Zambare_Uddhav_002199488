@@ -18,11 +18,13 @@ public class ManagementSystem {
     PatientDirectory patientDirectory;
     PersonDirectory personDirectory;
     DoctorDirectory doctorDirectory;
+    HospitalDirectory hospitalDirectory;
     HashMap<String, City> cities;
 
     public ManagementSystem() {
         this.patientDirectory = new PatientDirectory();
         this.personDirectory = new PersonDirectory(); 
+        this.hospitalDirectory = new HospitalDirectory(); 
         this.doctorDirectory = new DoctorDirectory();
         this.cities = new HashMap<String, City>();
     }
@@ -43,6 +45,14 @@ public class ManagementSystem {
         return personDirectory.addPerson(person);
     }
     
+    public int addHospital(Hospital hospital) {
+        if(cities.get(hospital.getHouse().getCity())==null){
+            cities.put(hospital.getHouse().getCity(),new City(hospital.getHouse().getCity()));
+        }
+        cities.get(hospital.getHouse().getCity()).getCommunity(hospital.getHouse().getCommunity()).addCommunityHouse(hospital.getHouse());
+        return hospitalDirectory.addHospital(hospital);
+    }
+    
     public PatientDirectory getPatientDirectory() {
         return patientDirectory;
     }
@@ -53,6 +63,10 @@ public class ManagementSystem {
 
     public PersonDirectory getPersonDirectory() {
         return personDirectory;
+    }
+    
+    public HospitalDirectory getHospitalDirectory() {
+        return hospitalDirectory;
     }
 
     public List<City> getCities() {

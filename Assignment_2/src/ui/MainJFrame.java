@@ -171,8 +171,15 @@ public class MainJFrame extends javax.swing.JFrame {
         Person p = null;
         Patient patient = null;
         Doctor doctor = null;
+        Hospital h = null;
         Encounter e = null;
         try {
+            
+            h = new Hospital("Leaf Village Medical Center",1987,"help@leafvillage.com",9348872332L,18675,"Orange County","Los Angeles",07652);
+            system.addHospital(h);
+            
+            h = new Hospital("Rain Village Medical Center",1971,"help@rainvillage.com",8872393432L,75,"Lexington","Boston",02115);
+            system.addHospital(h);
             
             p = new Person("Naruto","10/18/1997","Male","B-","naruto@gmail.com",9345654332L,165,60,143,"Orange County","Los Angeles",07652,null, null, null);
             system.addPerson(p);
