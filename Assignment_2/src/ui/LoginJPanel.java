@@ -54,7 +54,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         lblSysAdminTitle.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         lblSysAdminTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSysAdminTitle.setText("System Admin Login");
+        lblSysAdminTitle.setText("Login");
         lblSysAdminTitle.setToolTipText("");
         lblSysAdminTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -148,7 +148,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
             int User1 = Integer.parseInt(User);
             if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
-                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+                txtUsername.setText("");
+                pfPassword.setText("");
+                return;
+            
             }
             currentPatient = system.getPatientDirectory().getPatient(User1);
             String name = currentPatient.getName();
@@ -160,11 +164,19 @@ public class LoginJPanel extends javax.swing.JPanel {
                 PatientJPanel patientPanel = new PatientJPanel(layeredPane, system, User1);
                 displayPanel(patientPanel);
             }
+            else {
+            JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+            txtUsername.setText("");
+            pfPassword.setText("");
+            }
         }
         else if(Integer.parseInt(User)>8000 && Integer.parseInt(User)<8999){
             int User1 = Integer.parseInt(User);
             if(system.getDoctorDirectory().getDoctorIDs()!=null && !system.getDoctorDirectory().getDoctorIDs().contains(User1)){
-                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+                txtUsername.setText("");
+                pfPassword.setText("");
+                return;
             }
             currentDoctor = system.getDoctorDirectory().getDoctor(User1);
             String name = currentDoctor.getName();
@@ -173,8 +185,13 @@ public class LoginJPanel extends javax.swing.JPanel {
             String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
             System.out.print("patientID:"+PasswordCheck);
             if(Pass.equals(PasswordCheck)){
-                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-                displayPanel(sysadminPanel);
+                DoctorJPanel doctorPanel = new DoctorJPanel(layeredPane, system, User1);
+                displayPanel(doctorPanel);
+            }
+            else {
+            JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+            txtUsername.setText("");
+            pfPassword.setText("");
             }
         }
         else {

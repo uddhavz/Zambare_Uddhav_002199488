@@ -22,16 +22,18 @@ public class EncounterJPanel extends javax.swing.JPanel {
     JLayeredPane layeredPane;
     String pattern = "MM/dd/yyyy hh:mm:ss";
     SimpleDateFormat sDF = new SimpleDateFormat(pattern);
+    private int user;
     
     /**
      * Creates new form encounterJPanel
      */
     
-    public EncounterJPanel(JLayeredPane layeredPane, Patient patient, ManagementSystem system) {
+    public EncounterJPanel(JLayeredPane layeredPane, Patient patient, ManagementSystem system, Integer calledBy) {
         initComponents();
         this.layeredPane=layeredPane;
         this.system = system;
         this.currentPatient =patient;
+        user = calledBy;
         updatePatientView();
     }
 
@@ -329,8 +331,19 @@ public class EncounterJPanel extends javax.swing.JPanel {
         system.getPatientDirectory().getPatient(currentPatient.getPatientID()).getEncounterHistory().addEncounter(encounter);
         JOptionPane.showMessageDialog(this, "Vitals are added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
 
-        SysAdminJPanel sajp = new SysAdminJPanel(layeredPane, system);
-        displayPanel(sajp);
+        if(user == 0){
+            SysAdminJPanel sajp = new SysAdminJPanel(layeredPane, system);
+            displayPanel(sajp);
+        } 
+        else if(user == 1){
+            HospAdminJPanel sajp = new HospAdminJPanel(layeredPane, system);
+            displayPanel(sajp);
+        }
+        else if(user>8000 && user<8999){
+            DoctorJPanel sajp = new DoctorJPanel(layeredPane, system, user);
+            displayPanel(sajp);
+        }
+        
 
     }//GEN-LAST:event_submitBtnActionPerformed
 

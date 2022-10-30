@@ -2821,7 +2821,7 @@ public class HospAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Wrong Person/Patient ID!!", "Error",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        EncounterJPanel ejp = new EncounterJPanel(layeredPane, patient, system);
+        EncounterJPanel ejp = new EncounterJPanel(layeredPane, patient, system,1);
         displayPanel(layeredPane,ejp);
 
     }//GEN-LAST:event_btnAddAsPatientActionPerformed
