@@ -22,8 +22,8 @@
                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblSysUsername" max="32767" attributes="0"/>
                       <Component id="lblSysPassword" alignment="0" max="32767" attributes="0"/>
-                      <Component id="pfSysPassword" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtSysUsername" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                      <Component id="pfPassword" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtUsername" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnSysLogin" min="-2" max="-2" attributes="0"/>
@@ -47,11 +47,11 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblSysUsername" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtSysUsername" min="-2" max="-2" attributes="0"/>
+              <Component id="txtUsername" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblSysPassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pfSysPassword" min="-2" max="-2" attributes="0"/>
+              <Component id="pfPassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSysLogin" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="192" max="32767" attributes="0"/>
@@ -81,7 +81,7 @@
         <Property name="verticalAlignment" type="int" value="3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSysUsername">
+    <Component class="javax.swing.JTextField" name="txtUsername">
     </Component>
     <Component class="javax.swing.JLabel" name="lblSysPassword">
       <Properties>
@@ -93,7 +93,7 @@
         <Property name="verticalAlignment" type="int" value="3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pfSysPassword">
+    <Component class="javax.swing.JPasswordField" name="pfPassword">
     </Component>
     <Component class="javax.swing.JButton" name="btnSysLogin">
       <Properties>

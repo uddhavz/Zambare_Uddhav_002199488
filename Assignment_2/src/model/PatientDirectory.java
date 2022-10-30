@@ -48,7 +48,7 @@ public class PatientDirectory {
         do{ 
           id = (int)((Math.random() * (5999 - 5000)) + 5000); 
         }while(patients.keySet().contains(id));
-//        System.out.println("Patient ID:"+id);
+        System.out.println("Patient ID:"+id);
         return id;
     }
 

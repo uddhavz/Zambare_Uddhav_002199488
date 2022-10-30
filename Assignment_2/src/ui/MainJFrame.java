@@ -204,6 +204,7 @@ public class MainJFrame extends javax.swing.JFrame {
             e=new Encounter(new Date(), 100, 100, 100, 100, 100);
             patient.getEncounterHistory().getEncounters().add(e);
             system.addPatient(patient);
+            System.out.println("Hinata 05/01/1999");
             
             p = new Person("Minato","06/12/2000","Male","O+","minato@gmail.com",7824552160L,175,68,76,"NYC","New York",01235,null, null, null);
             patient = Utils.personToPatient(p);
@@ -217,6 +218,7 @@ public class MainJFrame extends javax.swing.JFrame {
             system.addPerson(p);
             doctor = Utils.personToDoctor(p);
             system.addDoctor(doctor);
+            System.out.println("Tsunade 03/28/1975");
             
             p = new Person("Kushina","03/28/1965","Female","O+","kushina@gmail.com",4587912604L,175,70,1,"NYC","New York",05432,null, null, null);
             system.addPerson(p);

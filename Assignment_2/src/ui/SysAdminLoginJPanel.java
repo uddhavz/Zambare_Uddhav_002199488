@@ -4,7 +4,9 @@
  */
 package ui;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.*;
 
@@ -19,11 +21,15 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
      */
     ManagementSystem system;
     JLayeredPane layeredPane;
+    Patient currentPatient;
+    Doctor currentDoctor;
+    Person currentPerson;
     
     public SysAdminLoginJPanel(JLayeredPane layeredPane, ManagementSystem system) {
         initComponents();
 //        SysAdminJPanel sajp = new SysAdminJPanel(mainJLayeredPane, system);
 //        displayPanel(mjp);
+
         this.layeredPane=layeredPane;
         this.system = system;
 //        populatePersonCatalog();
@@ -41,9 +47,9 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
 
         lblSysAdminTitle = new javax.swing.JLabel();
         lblSysUsername = new javax.swing.JLabel();
-        txtSysUsername = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         lblSysPassword = new javax.swing.JLabel();
-        pfSysPassword = new javax.swing.JPasswordField();
+        pfPassword = new javax.swing.JPasswordField();
         btnSysLogin = new javax.swing.JButton();
 
         lblSysAdminTitle.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
@@ -80,8 +86,8 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblSysUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSysPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pfSysPassword)
-                        .addComponent(txtSysUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pfPassword)
+                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSysLogin)
                         .addGap(78, 78, 78)))
@@ -99,11 +105,11 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(lblSysUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSysUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblSysPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pfSysPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSysLogin)
                 .addContainerGap(192, Short.MAX_VALUE))
@@ -111,9 +117,85 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSysLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSysLoginActionPerformed
-        // TODO add your handling code here:
-        SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-        displayPanel(sysadminPanel);
+        String User = null;
+        String Pass = null;
+            
+        if((txtUsername.getText().equals(""))||(pfPassword.getText().equals("")) ){
+            JOptionPane.showMessageDialog(this, "Please provide Username and Password!!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        User = txtUsername.getText();
+//        
+        
+        Pass = pfPassword.getText();
+        
+        if((User.equals("sysadmin"))||(Pass.equals("sadmin"))){
+            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+            displayPanel(sysadminPanel);
+        }
+        else if((User.equals("hospadmin"))||(Pass.equals("hadmin"))){
+            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+            displayPanel(sysadminPanel);  
+        }
+        else if((User.equals("communityadmin"))||(Pass.equals("cadmin"))){
+            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+            displayPanel(sysadminPanel);  
+        }
+        else if((txtUsername.getText().equals("hospadmin"))||(Pass.equals("hospadmin"))){
+            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+            displayPanel(sysadminPanel);
+        }
+        else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
+            int User1 = Integer.parseInt(User);
+            if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
+                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
+            }
+            currentPatient = system.getPatientDirectory().getPatient(User1);
+            String name = currentPatient.getName();
+            SimpleDateFormat sDF = new SimpleDateFormat("MM/dd/yyyy");
+            String dob = sDF.format(currentPatient.getDateOfBirth());
+            String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
+            System.out.print("patientID:"+PasswordCheck);
+            if(Pass.equals(PasswordCheck)){
+                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+                displayPanel(sysadminPanel);
+            }
+        }
+        else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
+            int User1 = Integer.parseInt(User);
+            if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
+                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
+            }
+            currentPatient = system.getPatientDirectory().getPatient(User1);
+            String name = currentPatient.getName();
+            SimpleDateFormat sDF = new SimpleDateFormat("MM/dd/yyyy");
+            String dob = sDF.format(currentPatient.getDateOfBirth());
+            String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
+            System.out.print("patientID:"+PasswordCheck);
+            if(Pass.equals(PasswordCheck)){
+                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+                displayPanel(sysadminPanel);
+            }
+        }
+        else if(Integer.parseInt(User)>8000 && Integer.parseInt(User)<8999){
+            int User1 = Integer.parseInt(User);
+            if(system.getDoctorDirectory().getDoctorIDs()!=null && !system.getDoctorDirectory().getDoctorIDs().contains(User1)){
+                JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);            
+            }
+            currentDoctor = system.getDoctorDirectory().getDoctor(User1);
+            String name = currentDoctor.getName();
+            SimpleDateFormat sDF = new SimpleDateFormat("MM/dd/yyyy");
+            String dob = sDF.format(currentDoctor.getDateOfBirth());
+            String PasswordCheck =  name.toUpperCase().substring(0,4) +dob.substring(0,2) + dob.substring(3, 5);
+            System.out.print("patientID:"+PasswordCheck);
+            if(Pass.equals(PasswordCheck)){
+                SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
+                displayPanel(sysadminPanel);
+            }
+        }
+        
+                
+                
     }//GEN-LAST:event_btnSysLoginActionPerformed
 
 
@@ -122,8 +204,8 @@ public class SysAdminLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblSysAdminTitle;
     private javax.swing.JLabel lblSysPassword;
     private javax.swing.JLabel lblSysUsername;
-    private javax.swing.JPasswordField pfSysPassword;
-    private javax.swing.JTextField txtSysUsername;
+    private javax.swing.JPasswordField pfPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     
