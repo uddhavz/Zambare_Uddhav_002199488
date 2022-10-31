@@ -4,7 +4,9 @@
  */
 package ui;
 
+import java.awt.Image;
 import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,6 +34,9 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         this.layeredPane=layeredPane;
         this.system = system;
+        ImageIcon ii = new ImageIcon("icons1.jpg");
+        Image img1 = ii.getImage().getScaledInstance(500, 100,Image.SCALE_SMOOTH);
+        jLabel2.setIcon(new ImageIcon(img1));
 //        populatePersonCatalog();
         
     }
@@ -51,6 +56,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblSysPassword = new javax.swing.JLabel();
         pfPassword = new javax.swing.JPasswordField();
         btnSysLogin = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         lblSysAdminTitle.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         lblSysAdminTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,8 +88,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(289, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblSysUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,9 +101,14 @@ public class LoginJPanel extends javax.swing.JPanel {
                         .addGap(78, 78, 78)))
                 .addGap(289, 289, 289))
             .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(lblSysAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(lblSysAdminTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +125,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                 .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSysLogin)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -137,13 +152,9 @@ public class LoginJPanel extends javax.swing.JPanel {
             HospAdminJPanel hospadminPanel = new HospAdminJPanel(layeredPane, system);
             displayPanel(hospadminPanel);  
         }
-        else if((User.equals("communityadmin"))||(Pass.equals("cadmin"))){
-            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-            displayPanel(sysadminPanel);  
-        }
-        else if((txtUsername.getText().equals("hospadmin"))||(Pass.equals("hospadmin"))){
-            SysAdminJPanel sysadminPanel = new SysAdminJPanel(layeredPane, system);
-            displayPanel(sysadminPanel);
+        else if((User.equals("cadmin"))||(Pass.equals("cadmin"))){
+            CommunityAdminJPanel cadminPanel = new CommunityAdminJPanel(layeredPane, system);
+            displayPanel(cadminPanel);  
         }
         else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
             int User1 = Integer.parseInt(User);
@@ -207,6 +218,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSysLogin;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblSysAdminTitle;
     private javax.swing.JLabel lblSysPassword;
     private javax.swing.JLabel lblSysUsername;

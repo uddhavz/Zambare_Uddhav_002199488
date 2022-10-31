@@ -17,10 +17,7 @@ public class City {
     
     private String name;
     private HashMap<String, Community> communities;
-
-//    public City() {
-//        communities = new HashMap<String, Community>();
-//    }
+    
     public City(String name) {
         communities = new HashMap<String, Community>();
         this.name = name;
@@ -43,6 +40,10 @@ public class City {
         if(communities.get(communityName) == null){
             communities.put(communityName, c);
         }
+    }
+    
+    public HashMap<String, Community> getAllCommunity() {
+        return communities;
     }
 
     public String getName() {

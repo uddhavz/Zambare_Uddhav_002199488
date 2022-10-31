@@ -4,10 +4,12 @@
  */
 package ui;
 
+import java.awt.Image;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import model.*;
 
@@ -28,6 +30,12 @@ public class MainJFrame extends javax.swing.JFrame {
         LoginJPanel mjp = new LoginJPanel(mainJLayeredPane, system);
         displayPanel(mjp);
         setResizable(false);
+        ImageIcon ii = new ImageIcon("hospitalicon.jpg");
+        Image img1 = ii.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+        jLabel1.setIcon(new ImageIcon(img1)); 
+        Image img2 = ii.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
+        jLabel2.setIcon(new ImageIcon(img2)); 
+        
     }
 
     /**
@@ -42,6 +50,8 @@ public class MainJFrame extends javax.swing.JFrame {
         mainJPanel = new javax.swing.JPanel();
         topbarJPanel = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mainJLayeredPane = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
 
@@ -50,8 +60,8 @@ public class MainJFrame extends javax.swing.JFrame {
         topbarJPanel.setBackground(new java.awt.Color(0, 0, 0));
 
         lblTitle.setBackground(new java.awt.Color(0, 0, 0));
-        lblTitle.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(204, 204, 204));
+        lblTitle.setFont(new java.awt.Font("Showcard Gothic", 0, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Longwood Medical Center");
 
         javax.swing.GroupLayout topbarJPanelLayout = new javax.swing.GroupLayout(topbarJPanel);
@@ -59,19 +69,31 @@ public class MainJFrame extends javax.swing.JFrame {
         topbarJPanelLayout.setHorizontalGroup(
             topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topbarJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(150, 150, 150))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         topbarJPanelLayout.setVerticalGroup(
             topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topbarJPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblTitle)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(topbarJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topbarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         mainJLayeredPane.setLayout(new java.awt.CardLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,7 +120,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(mainJPanelLayout.createSequentialGroup()
                 .addComponent(topbarJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainJLayeredPane, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+                .addComponent(mainJLayeredPane))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,6 +174,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLayeredPane mainJLayeredPane;

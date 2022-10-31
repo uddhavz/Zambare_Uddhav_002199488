@@ -68,7 +68,10 @@ public class ManagementSystem {
     public HospitalDirectory getHospitalDirectory() {
         return hospitalDirectory;
     }
-
+    
+    public HashMap<String, City> getCityMap() {
+        return cities;
+    }
     public List<City> getCities() {
         return new ArrayList<>(cities.values());
     }  
