@@ -156,6 +156,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             CommunityAdminJPanel cadminPanel = new CommunityAdminJPanel(layeredPane, system);
             displayPanel(cadminPanel);  
         }
+        else if((!User.equals("cadmin"))||(!User.equals("hospadmin"))||(!User.equals("sysadmin"))){
+             JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+            txtUsername.setText("");
+            pfPassword.setText("");
+        }
         else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
             int User1 = Integer.parseInt(User);
             if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
