@@ -156,12 +156,8 @@ public class LoginJPanel extends javax.swing.JPanel {
             CommunityAdminJPanel cadminPanel = new CommunityAdminJPanel(layeredPane, system);
             displayPanel(cadminPanel);  
         }
-        else if((!User.equals("cadmin"))||(!User.equals("hospadmin"))||(!User.equals("sysadmin"))){
-             JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
-            txtUsername.setText("");
-            pfPassword.setText("");
-        }
-        else if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
+        else if(isNumber(User)){
+            if(Integer.parseInt(User)>5000 && Integer.parseInt(User)<5999){
             int User1 = Integer.parseInt(User);
             if(system.getPatientDirectory().getPatientIDs()!=null && !system.getPatientDirectory().getPatientIDs().contains(User1)){
                 JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
@@ -210,12 +206,20 @@ public class LoginJPanel extends javax.swing.JPanel {
             pfPassword.setText("");
             }
         }
-        else {
-            JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+             JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
             txtUsername.setText("");
             pfPassword.setText("");
+            
         }
         
+//        else {
+//            JOptionPane.showMessageDialog(this, "Username and Password incorrect", "Error",JOptionPane.ERROR_MESSAGE);
+//            txtUsername.setText("");
+//            pfPassword.setText("");
+//        }
+//        
                 
                 
     }//GEN-LAST:event_btnSysLoginActionPerformed
@@ -237,5 +241,14 @@ public class LoginJPanel extends javax.swing.JPanel {
         layeredPane.add(panel);
         layeredPane.repaint();
         layeredPane.revalidate();
+    }
+    
+    public boolean isNumber(String num) {
+        try {
+            int x = Integer.parseInt(num);
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
     }
 }
